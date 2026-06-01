@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8">
+        <title>Mi primera página con Javascript</title>
+    </head>
+    <body>
+        <h1>Mi primera página con Javascript</h1>
+        <input type="text" placeholder="Ingrese un nombre" id="nombre_usuario">
+        <button onclick="alerta();">Mostrar alerta</button>
+        <script>
+            function alerta() {
+                //Declaro la variable nombre
+                //let nombre;
+                
+                //Asigno un valor a la variable nombre
+                //nombre = "Juan";
+                let nombre = document.getElementById("nombre_usuario").value;
+                //Muestro una alerta con el valor
+                alert(nombre);            
+            }
+        </script>
+    </body>
+</html>

@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Mi Página Básica</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background-color: #f4f4f4;
+      color: #333;
+    }
+
+    header {
+      background-color: #1f3c88;
+      color: white;
+      text-align: center;
+      padding: 30px 20px;
+    }
+
+    nav {
+      background-color: #162d63;
+      padding: 10px;
+      text-align: center;
+    }
+
+    nav a {
+      color: white;
+      text-decoration: none;
+      margin: 0 15px;
+      font-weight: bold;
+    }
+
+    section, aside, article {
+      background-color: white;
+      margin: 20px;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    .destacado {
+      background-color: #eaf2ff;
+      border-left: 5px solid #1f3c88;
+    }
+
+    footer {
+      background-color: #1f3c88;
+      color: white;
+      text-align: center;
+      padding: 15px;
+      margin-top: 20px;
+    }
+
+    button {
+      background-color: #1f3c88;
+      color: white;
+      border: none;
+      padding: 10px 16px;
+      border-radius: 6px;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: #162d63;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>Mi web</h1>
+    <p>Un ejemplo básico en HTML</p>
+  </header>
+
+  <nav>
+    <a href="#inicio">Inicio</a>
+    <a href="#sobre-mi">Sobre mí</a>
+    <a href="#contacto">Contacto</a>
+  </nav>
+
+  <section id="inicio">
+    <h2>Inicio</h2>
+    <p>Perfil</p> 
+    <img src="./assets/imagen.jpg" alt="Imagen de ejemplo" style="width:100%; border-radius: 10px; margin-top: 20px;" />
+    <button>Ver más</button>
+  </section>
+
+  <article id="sobre-mi" class="destacado">
+    <h2>Sobre mí</h2>
+    <p>Julian por aca.</p>
+  </article>
+
+  <aside id="contacto">
+    <h2>Contacto</h2>
+    <p>acevedo acevedo</p>
+  </aside>
+
+  <footer>
+    <p>© 2026 Mi Página Web</p>
+  </footer>
+
+</body>
+</html>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="es">
+
+    <head>
+        <meta charset="UTF-8">
+        <title>Calculo retencion IVA</title>
+        <script src="./jquery.js"></script>
+    </head>
+
+    <body id="body"></body>
+    
+    <script>
+
+            $("#body").append(`
+                <h1 id='greetings'>Calculo retencion IVA</h1>
+                <input type="number" id="monto" placeholder="Ingrese el monto">
+                <button id="calcular">Calcular</button>
+                <p id="resultado"></p>
+            `);
+
+            $("#calcular").click(
+                function() {
+                    let monto = parseFloat($("#monto").val());
+                    let retencion = monto * 0.1525;
+                    $("#resultado").text(`La retención de IVA es: $${retencion.toFixed(0)}`);
+            });
+
+    </script>
+
+</html>

@@ -1,0 +1,76 @@
+
+            body {
+                background-image: url('https://ciencia.nasa.gov/wp-content/uploads/sites/2/2024/08/chandra-wallpaper-x25th-casa.jpg');
+                height: 100svh;
+                margin: 0;
+                font-family: Arial, sans-serif;
+
+                display: flex;
+                flex-direction: column;
+                justify-content: space-evenly;
+            }
+
+            .tarjeta {
+                margin: 0.5rem;
+                padding: 1rem;
+                border-radius: 0.5rem;
+                box-shadow: 5px 5px 10px  rgb(255, 255, 255, 0.4);   
+                border: 4px solid;
+            }
+
+            header {
+                text-align: center;
+            }
+
+            .titulo-sitio {
+                background-color: #0c6291;
+            }
+
+            #mensaje-bienvenida {
+                background-color: #dced31;
+            }
+
+            nav {
+                background-color: #7e1946;
+
+                ul {
+                    list-style: none;
+
+                    display: flex;
+                    justify-content: space-around;
+                }
+
+                li {
+                    a {
+                        text-decoration: none;
+                        color: #0d0106;
+                        font-weight: bold;
+                        font-size: 1.2rem;
+                        cursor: help;
+                    }
+                }
+            }
+
+            main {
+                display: flex;
+                justify-content: space-between;
+
+                h2 {
+                    text-align: center;
+                }
+            }
+
+            section {
+                width: 50%;
+                background-color: #e26d5c;
+            }
+
+            aside {
+                width: 50%;
+                background-color: #40c9a2;
+            }
+            
+            footer {
+                text-align: center;
+                background-color: #ffd166;
+            }
