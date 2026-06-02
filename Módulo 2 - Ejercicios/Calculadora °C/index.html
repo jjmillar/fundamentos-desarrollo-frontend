@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Convertidor de Temperatura</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="./style.css">
+</head>
+
+<body class="bg-light text-dark">
+    <div class="d-flex flex-column min-vh-100">
+        <header class="py-5 border-bottom border-primary-subtle">
+            <div class="container">
+                <h1 class="display-5 fw-bold mb-3 text-primary">Convertidor de temperatura</h1>
+        </header>
+
+        <main class="flex-grow-1 py-5">
+            <div class="container">
+                <div class="row g-5">
+                    <aside class="col-lg-4">
+                        <div class="card border-info-subtle shadow-sm">
+                            <div class="card-body">
+                                <h6 class="text-uppercase text-primary fw-bold mb-4">Menú</h6>
+                                <ul class="nav nav-pills flex-column gap-2">
+                                    <li class="nav-item">
+                                        <a href="./index.html" class="nav-link active bg-info text-dark fw-bold">Calculadora</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a href="./about.html" class="nav-link text-dark">Acerca de</a>
+                                    </li>
+                                </ul>
+                                <div class="alert alert-info mt-4 mb-0" role="alert">
+                                    <small class="d-block fw-bold mb-2">Tip rápido</small>
+                                    <small>Solo ingresa un valor y pulsa "Calcular". La app detecta automáticamente si escribiste °C, °F o K.</small>
+                                </div>
+                            </div>
+                        </div>
+                    </aside>
+
+                    <section class="col-lg-8">
+                        <div class="card border-info-subtle shadow-sm">
+                            <div class="card-body p-5">
+
+                                <div class="row g-4 mb-4">
+                                    <div class="col-md-4">
+                                        <label for="C" class="form-label fw-bold text-primary">°C (Celsius)</label>
+                                        <input type="number" id="C" class="form-control border-info" placeholder="Ingrese temperatura">
+                                    </div>
+
+                                    <div class="col-md-4">
+                                        <label for="F" class="form-label fw-bold text-primary">°F (Fahrenheit)</label>
+                                        <input type="number" id="F" class="form-control border-info" placeholder="Ingrese temperatura">
+                                    </div>
+
+                                    <div class="col-md-4">
+                                        <label for="K" class="form-label fw-bold text-primary">°K (Kelvin)</label>
+                                        <input type="number" id="K" class="form-control border-info" placeholder="Ingrese temperatura">
+                                    </div>
+                                </div>
+
+                                <div class="d-flex gap-2 mb-4">
+                                    <button class="btn btn-info btn-lg fw-bold text-dark" onclick="operacion()">Calcular</button>
+                                    <button class="btn btn-outline-primary btn-lg fw-bold" type="button" onclick="limpiar()">Limpiar</button>
+                                </div>
+
+                                <div class="card bg-info-subtle border-info">
+                                    <div class="card-body text-center py-5">
+                                        <h5 class="card-title text-uppercase fw-bold text-muted mb-3">Resultado</h5>
+                                        <p id="resultado" class="fs-5 fw-bold mb-0 text-primary">Ingresa un valor para calcular</p>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </section>
+                </div>
+            </div>
+        </main>
+
+        <footer class="py-4 border-top border-primary-subtle">
+            <div class="container text-center text-muted">
+                <small>Desarrollado por Julian Millar</small>
+            </div>
+        </footer>
+    </div>
+
+    <script>
+        function operacion() {
+
+            const cValue = parseFloat(document.getElementById("C").value);
+            const fValue = parseFloat(document.getElementById("F").value);
+            const kValue = parseFloat(document.getElementById("K").value);
+
+            const values = [cValue, fValue, kValue];
+            const filled = values.filter(v => !isNaN(v));
+            const resultElement = document.getElementById("resultado");
+
+            if (filled.length !== 1) {
+                resultElement.textContent = "Por favor, completa solo uno de los campos con un número.";
+                return;
+            }
+
+            if (!isNaN(cValue)) {
+                c = cValue;
+                f = (c * 9 / 5) + 32;
+                k = c + 273.15;
+            } else if (!isNaN(fValue)) {
+                f = fValue;
+                c = (f - 32) * 5 / 9;
+                k = c + 273.15;
+            } else {
+                k = kValue;
+                c = k - 273.15;
+                f = (c * 9 / 5) + 32;
+            }
+
+            resultElement.textContent = `${c}°C  =  ${f}°F  =  ${k}K`;
+        }
+
+        function limpiar() {
+            document.getElementById("C").value = "";
+            document.getElementById("F").value = "";
+            document.getElementById("K").value = "";
+            document.getElementById("resultado").textContent = "Ingresa un valor para calcular";
+        }
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
