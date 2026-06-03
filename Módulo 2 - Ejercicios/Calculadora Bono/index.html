@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calcula tu bono</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="./style.css">
+</head>
+
+<body class="bg-light text-dark">
+    <div class="d-flex flex-column min-vh-100">
+        <header class="py-5 border-bottom border-primary-subtle">
+            <div class="container">
+                <h1 class="display-5 fw-bold mb-3 text-primary">Calculadora de bono por carga familiar</h1>
+        </header>
+
+        <main class="flex-grow-1 py-5">
+            <div class="container">
+                <div class="row g-5">
+                    <aside class="col-lg-4">
+                        <div class="card border-info-subtle shadow-sm">
+                            <div class="card-body">
+                                <h6 class="text-uppercase text-primary fw-bold mb-4">Menú</h6>
+                                <ul class="nav nav-pills flex-column gap-2">
+                                    <li class="nav-item">
+                                        <a href="./index.html" class="nav-link active bg-info text-dark fw-bold">Calculadora</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a href="./about.html" class="nav-link text-dark">Acerca de</a>
+                                    </li>
+                                </ul>
+                                <div class="alert alert-info mt-4 mb-0" role="alert">
+                                    <small class="d-block fw-bold mb-2">Tip rápido</small>
+                                    <small>Completa ambos campos para calcular tu bono. Ojo!!! No hay boton de calcular :B</small>
+                                </div>
+                            </div>
+                        </div>
+                    </aside>
+
+                    <section class="col-lg-8">
+                        <div class="card border-info-subtle shadow-sm">
+                            <div class="card-body p-5">
+
+                                <div class="row mb-4 justify-items-center align-items-center g-4">
+
+                                    <div class="col">
+                                        <label for="Salary" class="fw-bold text-primary">Sueldo actual</label>
+                                        <input type="number" id="Salary" class="form-control border-info" placeholder="Ingrese su sueldo" oninput="formatearSalary()">
+                                        <small id="salaryFormatted" class="text-muted d-block mt-2"></small>
+                                    </div>
+
+                                    <div class="col">
+                                        <label for="FamilyCount" class="fw-bold text-primary">Carga familiar</label>
+                                        <input type="number" id="FamilyCount" class="form-control border-info" placeholder="Ingrese el numero de personas a cargo" oninput="operacion()">
+                                    </div>
+
+                                    <div class="col">
+                                        <button class="btn btn-outline-primary btn-lg fw-bold" type="button" onclick="limpiar()">Limpiar</button>
+                                    </div>
+
+                                </div>
+
+                                <div class="card bg-info-subtle border-info">
+                                    <div class="card-body text-center py-5">
+                                        <h5 class="card-title text-uppercase fw-bold text-muted mb-3">Resultado</h5>
+                                        <p id="resultado" class="fs-5 fw-bold mb-0 text-primary">Por favor, completa ambos campos para poder calcular tu bono.</p>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </section>
+                </div>
+            </div>
+        </main>
+
+        <footer class="py-4 border-top border-primary-subtle">
+            <div class="container text-center text-muted">
+                <small>Desarrollado por <b>JJ Studio</b></small>
+            </div>
+        </footer>
+    </div>
+
+    <script>
+        function formatearSalary() {
+            const salaryInput = document.getElementById("Salary").value;
+            const salaryFormatted = document.getElementById("salaryFormatted");
+            
+            if (salaryInput === "" || isNaN(salaryInput)) {
+                salaryFormatted.textContent = "";
+                return;
+            }
+            
+            const formattedValue = new Intl.NumberFormat('es-CL', { style: 'currency', currency: 'CLP' }).format(salaryInput);
+            salaryFormatted.textContent = formattedValue;
+
+            operacion(); // Llamar a la función de operación para actualizar el resultado al formatear el sueldo
+        }
+
+        function operacion() {
+            // Validar que ambos campos estén llenos antes de mostrar el resultado
+            const sValue = parseFloat(document.getElementById("Salary").value);
+            const fcValue = parseFloat(document.getElementById("FamilyCount").value);
+
+            const values = [sValue, fcValue];
+            const filled = values.filter(v => !isNaN(v));
+            const resultElement = document.getElementById("resultado");
+
+            if (filled.length !== 2) {
+                resultElement.textContent = "Por favor, completa ambos campos para poder calcular tu bono.";
+                return;
+            }
+
+            // Calcular el bono y formatearlo a moneda chilena
+            let salary = document.getElementById("Salary").value;
+            let familyCount = document.getElementById("FamilyCount").value; 
+            let bonus = (salary * 0.02) * familyCount;
+            let bonusFormatted = new Intl.NumberFormat('es-CL', { style: 'currency', currency: 'CLP' }).format(bonus);
+
+            resultElement.textContent = `Su bono sera de ${bonusFormatted}`;
+        }
+
+        // Función para limpiar los campos y el resultado con el boton "Limpiar"
+
+        function limpiar() {
+            document.getElementById("Salary").value = "";
+            document.getElementById("FamilyCount").value = "";
+            document.getElementById("resultado").textContent = "Ingresa un valor para calcular";
+        }
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
