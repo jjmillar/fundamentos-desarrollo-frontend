@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8">
+        <title>Ejemplo de operadores</title>
+    </head>
+    <body>
+        <button onclick="operadores();">Ejecutar</button>
+        <script>
+            function operadores() {
+                const numero1 = 5, numero2 = 2;
+                let contador = 0;
+                console.log("Suma: " + (numero1 + numero2));
+                console.log("Resta: " + (numero1 - numero2));
+                console.log("Multiplicación: " + (numero1 * numero2));
+                console.log("División: " + (numero1 / numero2));
+                console.log("Resto: " + (numero1 % numero2));
+                if (numero2 % 2 == 0) {
+                    console.log("El número es par");
+                } else {
+                    console.log("El número es impar");
+                }
+                // Muestra 0 e incrementa
+                console.log("Contador: " + contador++); 
+                //Muestra 1 e incrementa
+                console.log("Contador: " + contador++);
+                //Muestra 2 y decrementa
+                console.log("Contador: " + contador--);
+                //Muestra 1 y decrementa
+                console.log("Contador: " + contador--);
+                //Muestra 0
+                console.log("Contador: " + contador);
+                console.log("Operadores de comparación");
+                console.log("Igual: " + (numero1 == numero2));
+                console.log("Distinto: " + (numero1 != numero2));
+                console.log("Mayor: " + (numero1 > numero2));
+                console.log("Menor: " + (numero1 < numero2));
+                console.log("Mayor o igual: " + (numero1 >= numero2));
+                console.log("Menor o igual: " + (numero1 <= numero2));
+            }
+        </script>
+    </body>
+</html>

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8">
+        <title>Ejemplo de expresiones</title>
+    </head>
+    <body>
+        <button onclick="expresiones();">Ejecutar</button>
+        <script>
+            function expresiones() {
+                let nota = 3.9;
+                let asistencia = 89;
+                let matriculado = true;
+                console.log(!(nota >= 4.0) && asistencia >= 80);
+            
+                console.log(!matriculado);
+                if (nota >= 4.0 && asistencia >= 80) {
+                    console.log("El alumno(a) está aprobado(a)");
+                    console.log("Felicitaciones!");
+                } else {
+                    console.log("El alumno(a) está reprobado(a)");
+                }
+            }
+        </script>
+    </body>
+</html>
