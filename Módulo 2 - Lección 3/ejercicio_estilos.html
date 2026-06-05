@@ -3,34 +3,98 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ejercicio - Creación y aplicación de estilos CSS</title>
+    <title>Ejercicio - Diseño Responsivo y Bootstrap</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
-    <h1>Ejercicio Práctico: Estilos CSS</h1>
-    
-    <h2>Creación y aplicación de estilos CSS</h2>
-    
-    <p>Este ejercicio tiene como objetivo aprender a vincular una hoja de estilos externa al documento HTML y aplicar propiedades básicas de diseño.</p>
-    
-    <h3>Objetivo</h3>
-    <p>Aprender a vincular una hoja de estilos externa al documento HTML y aplicar propiedades básicas de diseño (colores, tipografía y manejo de imágenes) para mejorar la presentación de una página web.</p>
-    
-    <h3>Tareas Realizadas</h3>
-    <ul>
-        <li>Crear hoja de estilos externa en la carpeta CSS</li>
-        <li>Enlazar la hoja de estilos al documento HTML</li>
-        <li>Aplicar color de fondo lightblue al body</li>
-        <li>Cambiar color de fuente a rojo en los títulos</li>
-        <li>Dar formato a la imagen (400px x 300px)</li>
-        <li>Centrar la imagen en la página</li>
-    </ul>
-    
-    <h3>Imagen de Ejemplo</h3>
-    <img src="./img/imagen.jpg" alt="Imagen de ejemplo del ejercicio">
-    
-    <footer>
-        <p>&copy; Ejercicio de Fundamentos de Desarrollo Frontend</p>
+    <!-- Navbar de Bootstrap -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">Frontend Desarrollo</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="#inicio">Inicio</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#productos">Productos</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#contacto">Contacto</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Contenedor principal -->
+    <div class="container-main">
+        <!-- Sección de bienvenida -->
+        <section id="inicio" class="hero-section">
+            <h1>Diseño Responsivo y Bootstrap</h1>
+            <p>Ejercicio práctico de diseño web adaptativo con Mobile First</p>
+        </section>
+
+        <!-- Contenido principal con Grid -->
+        <div class="content-grid">
+            <!-- Sección principal -->
+            <main class="main-content">
+                <section id="productos" class="section">
+                    <h2>Características del Proyecto</h2>
+                    
+                    <div class="cards-container">
+                        <div class="card-item">
+                            <h3>Mobile First</h3>
+                            <p>Diseño pensado primero para dispositivos móviles, escalando hacia pantallas más grandes.</p>
+                        </div>
+                        <div class="card-item">
+                            <h3>Flexbox</h3>
+                            <p>Uso de flexbox para organizar elementos de manera flexible y responsiva.</p>
+                        </div>
+                        <div class="card-item">
+                            <h3>CSS Grid</h3>
+                            <p>Estructura bidimensional con CSS Grid para un diseño más complejo y ordenado.</p>
+                        </div>
+                    </div>
+                </section>
+
+                <section class="section">
+                    <h2>Imagen de Ejemplo</h2>
+                    <img src="./assets/imagen.jpg" alt="Imagen de ejemplo del ejercicio" class="responsive-image">
+                </section>
+            </main>
+
+            <!-- Barra lateral -->
+            <aside class="sidebar">
+                <h3>Información</h3>
+                <ul class="info-list">
+                    <li>Responsive Design</li>
+                    <li>Mobile First</li>
+                    <li>Flexbox & Grid</li>
+                    <li>Bootstrap 5</li>
+                    <li>Media Queries</li>
+                </ul>
+            </aside>
+        </div>
+
+        <!-- Sección de contacto -->
+        <section id="contacto" class="section contact-section">
+            <h2>Contacto</h2>
+            <p>Para más información sobre este proyecto, contáctanos a través de nuestras redes sociales.</p>
+        </section>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <p>&copy; 2024 - Ejercicio de Fundamentos de Desarrollo Frontend | Módulo 2 - Lección 3</p>
     </footer>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
