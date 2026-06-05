@@ -1,0 +1,60 @@
+/* Estilos para el ejercicio práctico de CSS */
+
+/* Estilo para el body */
+body {
+    background-color: lightblue;
+    font-family: Arial, sans-serif;
+    margin: 20px;
+    padding: 20px;
+}
+
+/* Estilos para los títulos */
+h1 {
+    color: red;
+}
+
+h2 {
+    color: red;
+}
+
+h3 {
+    color: red;
+}
+
+h4 {
+    color: red;
+}
+
+h5 {
+    color: red;
+}
+
+h6 {
+    color: red;
+}
+
+/* Estilo para las imágenes */
+img {
+    width: 400px;
+    height: 300px;
+    display: block;
+    margin: auto;
+}
+
+/* Estilo para párrafos */
+p {
+    line-height: 1.6;
+}
+
+/* Estilo para listas */
+ul {
+    margin: 15px 0;
+}
+
+/* Estilo para el footer */
+footer {
+    margin-top: 30px;
+    text-align: center;
+    color: #333;
+    font-size: 0.9em;
+}
