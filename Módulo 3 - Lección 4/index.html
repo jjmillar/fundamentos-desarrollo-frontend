@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8">
+        <title>Ejemplo de función</title>
+    </head>
+    <body>
+        <span id="otro-resultado"></span>
+        <button onclick="inicio(5);">Ejecutar</button>
+        <p id="resultado"></p>
+        <script>
+            function convertir(uf) {
+                let resultado;
+                resultado = uf * 40746.28;
+                return resultado;
+            }
+            function inicio(uf) {
+                console.log(`${uf} UF = ${convertir(uf)} CLP`);
+                alert(`${uf} UF = ${convertir(uf)} CLP`);
+                document.getElementById("resultado").textContent = `${uf} UF = ${convertir(uf)} CLP`;
+                document.getElementById("otro-resultado").textContent = convertir(100);
+            }
+        </script>
+    </body>
+</html>

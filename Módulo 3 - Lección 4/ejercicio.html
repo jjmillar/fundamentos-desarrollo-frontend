@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8">
+        <title>Ejemplo de función</title>
+    </head>
+    <body>
+        <label for="haberes">Haberes:</label>
+        <input type="number" id="haberes" placeholder="Ingrese el monto total de sus haberes"></input>
+        <label for="descuentos">Descuentos:</label>
+        <input type="number" id="descuentos" placeholder="Ingrese el monto total de sus descuentos"></input>
+        <button onclick="inicio()">Ejecutar</button>
+        <p id="resultado"></p>
+        <script>
+            function convertir(a, b) {
+                let res = a - b;
+                return res;
+            }
+
+            function inicio() {
+                var haberes = document.getElementById("haberes").value;
+                var descuentos = document.getElementById("descuentos").value;
+
+                console.log(`El monto líquido a recibir es: ${convertir(haberes, descuentos)}`);
+                document.getElementById("resultado").textContent = `El monto líquido a recibir es: ${convertir(haberes, descuentos)}`;
+                console.log(haberes, descuentos);
+                
+            }
+        </script>
+    </body>
+</html>

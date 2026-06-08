@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8">
+        <title>Ejemplo de ciclo-arreglo</title>
+    </head>
+    <body>
+        <button onclick="pares();">Ejecutar</button>
+        <script>
+            function pares() {
+                let numeros = [1,2,3,4,5,6,7,8,9,10];
+                let contador = 0;
+                for(let numero of numeros){
+                    if (numero % 2 == 0){
+                        // Cuenta el número par
+                        contador++;
+                        // Muestra el número par
+                        console.log(numero);
+                    }
+                }
+                console.log(`Hay ${contador} números pares`);
+            }
+        </script>
+    </body>
+</html>

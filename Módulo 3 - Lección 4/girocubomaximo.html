@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>giro_cubo_maximo</title>
+    </head>
+    <body>
+        <div id="cubo" style="width: 100px; height: 100px; background-color: red;"></div>
+        <button onclick="giroCubo();">Ejecutar</button>
+        <button onclick="stop();">Detener</button>
+        <script>
+            var giro = 0;
+            function giroCubo() {
+                let cubo = document.getElementById("cubo");
+                giro += 1;
+                cubo.style.transform = `rotate(${giro}deg)`;
+
+                setTimeout(giroCubo, 10);
+            }
+            function stop() {
+                clearTimeout(giroCubo);
+            }
+        </script>
+        
+    </body>
+</html>

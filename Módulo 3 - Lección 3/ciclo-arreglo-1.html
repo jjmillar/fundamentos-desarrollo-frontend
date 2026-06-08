@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8">
+        <title>Ejemplo de ciclo-arreglo</title>
+    </head>
+    <body>
+        <button onclick="recorrer();">Ejecutar</button>
+        <script>
+            function recorrer() {
+                let i;
+                
+                let colores = [];
+                
+                // Pus: Método que agrega un elemento al final del arreglo
+                colores.push('Blanco');
+                colores.push('Azul');
+                colores.push('Rojo');
+                colores.push('Amarillo');
+                colores.push('Naranjo');
+                colores.push('Morado'); // 5
+                colores.push('Café');
+                colores.push('Celeste');
+                colores.push('Gris');
+                colores.push('Negro');                
+                colores.push('Verde');
+                // Método que elimina el último elemento del arreglo
+                colores.pop();
+                colores.splice(5, 1);
+
+                // Ciclo que recorre los elementos de un arreglo
+                for(let color of colores) {
+                    console.log(color)
+                }
+            }
+        </script>
+    </body>
+</html>
