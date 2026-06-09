@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8">
+        <title>Ejemplo de objeto</title>
+    </head>
+    <body>
+        <input id="nombre" placeholder="Nombre">
+        <input id="especialidad" placeholder="Especialidad">
+        <input id="email" placeholder="Email">
+        <input id="fono" placeholder="Fono">
+        <button onclick="objeto();">Ejecutar</button>
+        <p id="resultado"></p>
+        <script>
+            function objeto() {
+                let docente = {
+                    nombre: document.getElementById("nombre").value,
+                    especialidad: document.getElementById("especialidad").value,
+                    email: document.getElementById("email").value,
+                    fono: document.getElementById("fono").value
+                }
+                
+                document.getElementById("resultado").textContent = `Docente: ${docente.nombre} - Especialidad: ${docente.especialidad}`;
+                docente.nombre = "LUIS";
+                document.getElementById("resultado").textContent = `Docente: ${docente.nombre} - Especialidad: ${docente.especialidad}`;
+            }
+            
+        </script>
+    </body>
+</html>

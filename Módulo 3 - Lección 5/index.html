@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8">
+        <title>Ejemplo de objeto</title>
+    </head>
+    <body>
+        <button onclick="objeto();">Ejecutar</button>
+        <p id="resultado"></p>
+        <script>
+            function objeto() {
+                let alumnos = [
+                    {
+                        nombre: 'Joaquín',
+                        edad: 21,
+                        rut: '12345678-9'
+                    },
+                    {
+                        nombre: 'Catherine',
+                        edad: 30,
+                        rut: '11111111-1'
+                    },
+                    {
+                        "propiedad1": 'Felipe',
+                        "propiedad2": 48,
+                        "propiedad3": "22222222-2"
+                    }
+                ];
+                let docente = {
+                    nombre: 'Tomás',
+                    especialidad: 'Desarrollo de Software',
+                    email: 'tomas@gmail.com',
+                    foto: 987654321
+                }
+                
+                console.log(alumnos);
+                
+                console.log(`Docente: ${docente.nombre} - Especialidad: ${docente.especialidad}`);
+                
+            }
+        </script>
+    </body>
+</html>

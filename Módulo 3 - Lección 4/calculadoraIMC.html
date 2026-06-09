@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8">
+        <title>Ejemplo de función IMC</title>
+    </head>
+    <body>
+        <label>Peso: </label><input id="peso" type="number">
+        <label>Altura: </label><input id="altura" type="number">
+        
+        <button onclick="imc(Number(document.getElementById('peso').value), Number(document.getElementById('altura').value));">Ejecutar</button>
+        
+        <p id="resultado"></p>
+        <script>
+            function imc(peso, altura) {
+                let resultado = peso / (altura * altura);
+                
+                let categoria;
+                if (resultado < 18.5) {
+                    categoria = "Bajo peso";
+                } else {
+                    if (resultado <= 24.9) {
+                        categoria = "Peso normal";
+                    } else {
+                        if (resultado <= 29.9) {
+                            categoria = "Sobrepeso";
+                        } else {
+                            categoria = "Obesidad";
+                        }   
+                    }
+                }
+                document.getElementById("resultado").textContent = `IMC = ${resultado} - Categoría: ${categoria}`;
+            }
+        </script>
+    </body>
+</html>

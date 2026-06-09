@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>giro_cubo_maximo</title>
+    </head>
+    <body style="display: flex; flex-direction: column; align-items: center; justify-content: space-between; height: 100vh;">
+        <input id="name" type="text" placeholder="Escriba su nombre aquí">
+        <button onclick="giroCubo();">Ejecutar</button>
+        <button onclick="stop();">Detener</button>
+        <div id="cubo" style="width: 400px; height: 200px; background-color: red; display: none; font-weight: bold;"></div>
+        <script>
+            var giro = 0;
+            var timeoutId = null;
+            function giroCubo() {
+                let name = document.getElementById("name").value;
+                if (name) {
+                    document.getElementById("cubo").style.display = "block";
+                    document.getElementById("cubo").textContent = `Buenos días, ${name}`;
+                } else {
+                    document.getElementById("cubo").style.display = "block";
+                    document.getElementById("cubo").textContent = "Buenos días, estimado visitante";
+                }
+
+                let cubo = document.getElementById("cubo");
+                giro += 1;
+                cubo.style.transform = `rotate(${giro}deg)`;
+
+                timeoutId = setTimeout(giroCubo, 50);
+            }
+            function stop() {
+                clearTimeout(timeoutId);
+                giro = 0;
+            }
+        </script>
+        
+    </body>
+</html>
