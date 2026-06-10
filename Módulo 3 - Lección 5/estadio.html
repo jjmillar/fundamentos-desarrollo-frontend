@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8">
+        <title>Estadio</title>
+    </head>
+    <body style="display: flex; flex-direction: column; gap: 2rem;">
+        <input type="text" id="nombre" placeholder="Ingrese el nombre del estadio"></input>
+        <input type="number" id="aforo" placeholder="Ingrese el aforo del estadio"></input>
+        <input type="text" id="pais" placeholder="Ingrese el país del estadio"></input>
+        <button onclick="crearEstadio();">Ejecutar</button>
+        <p id="resultado"></p>
+        <script>
+
+            function data () {
+                return {
+                    nombre: document.getElementById('nombre').value,
+                    aforo: Number(document.getElementById('aforo').value),
+                    pais: document.getElementById('pais').value
+                }
+            }
+
+            function crearEstadio() {
+                const { nombre, aforo, pais } = data();
+                console.log(nombre, aforo, pais);
+                const estadio = {
+                    nombre: nombre,
+                    aforo: aforo,
+                    pais: pais
+                }
+                console.log(`Estadio ${estadio.nombre} - Aforo: ${estadio.aforo} - País: ${estadio.pais}`);
+            }
+        </script>
+    </body>
+</html>

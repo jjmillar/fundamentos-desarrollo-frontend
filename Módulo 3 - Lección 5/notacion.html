@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8">
+        <title>Ejemplo de objeto (notación)</title>
+    </head>
+    <body>
+        <button onclick="objeto();">Ejecutar</button>
+        <p id="resultado"></p>
+        <script>
+            function objeto() {
+                let computador = {
+                    marca: 'Acer',
+                    modelo: 'Aspire Lite 15',
+                    procesador: 'Intel Core i5',
+                    ram: 16,
+                    discoduro: 'SSD'
+                }
+                computador.ram = '16 GB';
+                console.log(`Computador ${computador.marca} - ${computador.modelo} - ${computador.procesador} - ${computador.ram}`);
+                computador["ram"] = 16;
+                console.log(`Computador ${computador["marca"]} - ${computador["modelo"]} - ${computador["procesador"]} - ${computador["ram"]}`);
+            }
+        </script>
+    </body>
+</html>

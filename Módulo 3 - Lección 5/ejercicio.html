@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8">
+        <title>Ejercicio de objetos (math)</title>
+    </head>
+    <body>
+        <input id="numero" placeholder="Ingrese número">
+        <button onclick="intentar();">Intentar</button>
+        <p id="resultado"></p>
+        <script>
+            let intento = 0;
+            let aleatorio = Math.floor(Math.random() * 10) + 1;
+            function intentar() {
+                intento++;
+                let mensaje = "";
+                if (intento > 3) {
+                    mensaje = "NO TIENE MÁS OPORTUNIDADES";
+                } else {
+                    numero = Number(document.getElementById("numero").value);
+                    if (numero === aleatorio) {
+                        mensaje = "FELICIDADES! ACABA DE GANAR! " + intento;
+                    } else {
+                        mensaje = "Lamentablemente, no es el número. " + intento;
+                        if (intento === 3){
+                            mensaje += " PERDIÓ"
+                        }
+                    }                    
+                }   
+                document.getElementById("resultado").textContent = mensaje;
+            }
+        </script>
+    </body>
+</html>

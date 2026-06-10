@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8">
+        <title>Ejercicio de objetos (métodos)</title>
+    </head>
+    <body>
+        <button onclick="metodos();">Ejecutar</button>
+        <p id="resultado"></p>
+        <script>
+            function metodos() {
+                let estudiante = {
+                    nombre: 'Vash Estampida',
+                    edad: 150,
+                    curso: '3C'
+                }
+
+                // 1- Muestra las propiedades usando Object.keys()
+                console.log(Object.keys(estudiante));
+
+                // 2- Muestra los valores usando Object.values()
+                console.log(Object.values(estudiante));
+
+                // 3- Muestra cada propiedad junto a su valor usando Object.entries()
+                console.log(Object.entries(estudiante));
+
+                // 4- Crea un nuevo objeto agregando la propiedad promedio mediante Object.assign()
+                let estudianteConPromedio = Object.assign({}, estudiante, {
+                    promedio: 8.5
+                });
+                console.log(estudianteConPromedio);
+
+                // 5- Crea un objeto alumnoPremium usando Object.create() y agrega un beneficio.
+                let alumnoPremium = Object.create(estudiante);
+                alumnoPremium.beneficio = 'Acceso a materiales exclusivos';
+                console.log(alumnoPremium);
+
+                // 6- Protege el objeto del estudiante con Object.seal()
+                let sealed = {...estudiante};
+                Object.seal(sealed);
+                sealed.nombre = 'Tamara';
+                sealed.apellido = 'Smith';
+                console.log(sealed);
+
+                // 7- Crea un objeto configuracionAcademia y protégelo completamente con Object.freeze()
+                let freezed = {...estudiante};
+                Object.freeze(freezed);
+                freezed.nombre = 'Tamara';
+                freezed.apellido = 'Smith';
+                console.log(freezed);
+            }
+        </script>
+    </body>
+</html>

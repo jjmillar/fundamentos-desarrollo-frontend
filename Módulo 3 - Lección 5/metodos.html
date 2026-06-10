@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8">
+        <title>Ejercicio de objetos (métodos)</title>
+    </head>
+    <body>
+        <button onclick="metodos();">Ejecutar</button>
+        <p id="resultado"></p>
+        <script>
+            function metodos() {
+                let persona = {
+                    nombre: 'Marcela',
+                    edad: 30,
+                    ciudad: 'Arica'
+                }
+                // Crea un arreglo con los nombres de todas las propiedades
+                console.log(Object.keys(persona));
+                // Crea un arreglo con los valores de todas las propiedades
+                console.log(Object.values(persona));
+                // Crea una matriz (arreglo de arreglos) con los nombres de propiedades y sus valores
+                console.log(Object.entries(persona));
+                // Crea un nuevo objeto a partir de la fusión de otros dos
+                let profesional = Object.assign({}, persona, {
+                    profesion: 'Desarrollador Front-End'
+                });
+                console.log(profesional);
+                // Crea un nuevo objeto como clon del original
+                let otraPersona = Object.create(persona);
+                otraPersona.nombre = 'Aníbal';
+                console.log(otraPersona.nombre);
+                // Bloquea el cambio de valor de las propiedades
+                Object.freeze(persona);
+                persona.nombre = 'Tamara';
+                console.log(persona);
+                // Bloquea la adición de nuevas propiedades
+                Object.seal(persona);
+                persona.email = 'marcela@gmail.com';
+                console.log(persona);
+            }
+        </script>
+    </body>
+</html>
