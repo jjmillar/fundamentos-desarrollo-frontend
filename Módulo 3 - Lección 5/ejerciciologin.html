@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8">
+        <title>Login</title>
+    </head>
+    <body>
+
+        <label for="usuario">Usuario</label>
+        <input type="text" id="usuario" placeholder="Ingrese su usuario">
+
+        <label for="constraseña">Constraseña</label>
+        <input type="password" id="contraseña" placeholder="Ingrese su constraseña">
+        
+        <button onclick="login();">Ejecutar</button>
+        
+        <script>
+
+            function login() {
+
+                const usuario = document.getElementById('usuario').value;
+                const contraseña = document.getElementById('contraseña').value;
+                console.log(usuario)
+                if (usuario != 'admin') {window.alert('usuario y/o contraseña invalido'); return}
+                if (contraseña != 123456) {window.alert('usuario y/o contraseña invalido'); return}
+                window.alert('Bienvenido Admin!!! :D')
+
+            }
+        </script>
+    </body>
+</html>

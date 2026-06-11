@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8">
+        <title>Ejemplo de objeto String</title>
+    </head>
+    <body>
+        <input type="text" id="frase" placeholder="Ingrese una frase">
+        
+        <button onclick="objeto();">Ejecutar</button>
+        
+        <p id="resultado"></p>
+        <script>
+            function objeto() {
+                let cadena = document.getElementById("frase").value;
+                console.log(`Longitud: ${cadena.length}`);
+                console.log(`Longitud: ${cadena.trim().length}`);
+                console.log(`Primer caracter: ${cadena.charAt(0)}`);
+                console.log(`Último caracter: ${cadena.charAt(cadena.length - 1)}`);
+                console.log(`Nueva cadena: ${cadena.replace("adm", "QWERTY")}`);
+                console.log(`Split: ${cadena.split(' ')}`);
+                for(palabra of cadena.split(' ')) {
+                    console.log(palabra);
+                }
+                console.log(`Cadena en mayúsculas: ${cadena.toUpperCase()}`);
+                console.log(`Cadena en minúsculas: ${cadena.toLowerCase()}`);
+            }
+        </script>
+    </body>
+</html>

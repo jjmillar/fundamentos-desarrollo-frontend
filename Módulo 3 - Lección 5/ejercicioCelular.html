@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8">
+        <title>Celular</title>
+    </head>
+    <body>
+
+        <label for="nombre">Nombre</label>
+        <input type="text" id="nombre" placeholder="Ingrese su nombre">
+
+        <label for="apellido">Constraseña</label>
+        <input type="text" id="apellido" placeholder="Ingrese su apellido">
+
+        <label for="telefono">Teléfono</label>
+        <input type="number" id="telefono" placeholder="Ingrese su teléfono">
+        
+        <button onclick="search();">Ejecutar</button>
+        
+        <script>
+            
+
+            function search() {
+
+                //BASE DE DATOS
+                const db = [
+                    {
+                        nombre: 'julian',
+                        apellido: 'millar',
+                        telefono: 12345678
+                    },
+                    {
+                        nombre: 'esteban',
+                        apellido: 'zuñiga',
+                        telefono: 12345678
+                    },
+                    {
+                        nombre: 'felipe',
+                        apellido: 'quezada',
+                        telefono: 12345678
+                    },
+                    {
+                        nombre: 'Loreto',
+                        apellido: 'Espinoza',
+                        telefono: 12345678
+                    }, 
+                ];
+
+                // RECUPERAMOS EL OBJETO USUARIO DE LOS INPUTS Y PASAMOS SUS STRINGS A MINUSCULAS
+                const user = {
+                    nombre: document.getElementById('nombre').value.toLowerCase(),
+                    apellido: document.getElementById('apellido').value.toLowerCase(),
+                    telefono: Number(document.getElementById('telefono').value)
+                };
+
+                // OCUPAMOS EL METODO FIND PARA BUSCAR AL USUARIO
+                const encontrado = db.find(e =>
+                    e.nombre.toLowerCase() === user.nombre &&
+                    e.apellido.toLowerCase() === user.apellido &&
+                    e.telefono === user.telefono
+                );
+
+                // SI EL USUARIO EXISTE SE AVISA MEDIANTE UN ALERT
+                if (encontrado) {
+                    window.alert('usuario encontrado');
+                    return;
+                }
+
+                // SI EL USUARIO NO EXISTE SE AVISA MEDIANTE UN ALERT
+                window.alert('usuario no encontrado');
+
+            }
+        </script>
+    </body>
+</html>
