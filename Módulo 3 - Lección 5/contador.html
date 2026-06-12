@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8">
+        <title>Ejemplo de contador</title>
+        <link rel="stylesheet" href="./css/contador.css">
+    </head>
+    <body>
+        <img id="pacman" src="./img/openPacman.png" alt="pacman">
+        <section>
+            <h1>Contador</h1>
+            <button onclick="aumentar();" class="btn">Aumentar</button>
+            <button onclick="disminuir();" class="btn">Disminuir</button>
+            <button onclick="resetear();" class="btn">Resetear</button>
+            <p id="resultado">0</p>
+        </section>
+
+        <script>
+            // Variable global: Se declara e inicializa
+            let contador = 0;
+            const pacman = document.getElementById('pacman');
+            let posicionX = 0;
+
+            function aumentar(){
+                // Aumenta en una unidad el valor almacenado
+                contador++;
+                mostrar_valor_contador();
+                mover_derecha();
+            }
+            function disminuir(){
+                // Disminuye en una unidad el valor almacenado
+                contador--;
+                mostrar_valor_contador();
+                mover_izquierda();
+            }
+            function mostrar_valor_contador() {
+                document.getElementById("resultado").textContent = contador;
+            }
+            function resetear(){
+                contador = 0;
+                mostrar_valor_contador();
+                pacman.style.transform = `translateX(0px) scaleX(1)`;
+            }
+            function mover_derecha(){
+                posicionX += 3;
+                pacman.style.transform = `translateX(${posicionX}px) scaleX(1)`;
+            }
+            function mover_izquierda(){
+                posicionX -= 3;
+                pacman.style.transform = `translateX(${posicionX}px) scaleX(-1)`
+            }
+            
+        </script>
+    </body>
+</html>

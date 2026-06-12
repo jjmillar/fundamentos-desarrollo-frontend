@@ -1,0 +1,54 @@
+body {
+    margin: 0;
+    height: 100svh;
+    width: 100svw;
+    position: relative;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+img {
+    position: absolute;
+    height: 10svh;
+    top: 7.5svh;
+    
+}
+
+section {
+    width: 50svw;
+    height: 50svh;
+    border-radius: 1rem;
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.btn {
+    width: 50%;
+    background-color: lightgray;
+    border-radius: 50px;
+    border-width: 0;
+    box-shadow: rgba(25, 25, 25, 0.04) 0 0 1px 0, rgba(0, 0, 0, 0.1) 0 3px 4px 0;
+    color: #30343F;
+    cursor: pointer;
+    display: inline-block;
+    font-size: 1em;
+    height: 50px;
+    padding: 0 25px;
+    transition: all 200ms;
+}
+
+.btn:hover {
+    transform: scale(1.05);
+}
+
+#resultado {
+    font-size: 2rem;
+}
