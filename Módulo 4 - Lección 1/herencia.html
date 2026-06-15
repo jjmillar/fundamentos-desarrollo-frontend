@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8">
+        <title>Ejemplo de clase</title>
+    </head>
+    <body>
+        <button onclick="ejecutar();">Ejecutar</button>
+        <script>
+            class Persona {
+                constructor (nombre, edad, sexo) {
+                    this.nombre = nombre;
+                    this.edad = edad;
+                    this.sexo = sexo;
+                }
+                comer() {
+                    console.log(`${this.nombre} está comiendo...`);
+                }
+                caminar() {
+                    console.log(`${this.nombre} está caminando...`);                    
+                }
+                dormir() {
+                    console.log(`${this.nombre} está durmiendo...`);
+                }
+            }
+            class Relator extends Persona {
+                constructor (nombre, edad, sexo, experiencia) {
+                    super(nombre, edad, sexo);
+                    this.experiencia = experiencia;
+                }
+                verExperiencia() {
+                    console.log(`${this.nombre} tiene ${this.experiencia} años de experiencia`);
+                }
+            }
+            class Estudiante extends Persona {
+                constructor (nombre, edad, sexo, carrera) {
+                    super(nombre, edad, sexo);
+                    
+                    this.carrera = carrera;
+                }
+                verCarrera() {
+                    console.log(`Estudia ${this.carrera}`);
+                }
+            }
+            function ejecutar() {                
+                let estudiante1 = new Estudiante('Luis', 30, 'Masculino', 'Desarrollador Full-Stack');
+                estudiante1.caminar();
+                estudiante1.verCarrera();
+                let relator1 = new Relator('Felipe', 35, 'Masculino', 15);
+                relator1.comer();
+                relator1.verExperiencia();                
+            }
+            
+        </script>
+    </body>
+</html>

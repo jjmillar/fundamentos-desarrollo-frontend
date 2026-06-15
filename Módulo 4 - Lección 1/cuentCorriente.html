@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8">
+        <title>Ejemplo de clase</title>
+    </head>
+    <body>
+        <button onclick="ejecutar();">Ejecutar</button>
+        <script>
+            class CuentaCorriente {
+                constructor (rut, numero_cuenta, saldo) {
+                    this.rut = rut;
+                    this.numero_cuenta = numero_cuenta;
+                    this.saldo = saldo;
+                }
+                verSaldo() {
+                    console.log(`Su saldo es de $${this.saldo}`);
+                }
+                verDatosCuenta() {
+                    console.log(`El numero de su cuenta es ${this.numero_cuenta}`);                    
+                }
+            }
+
+            function ejecutar() {
+                let cuenta1 = new CuentaCorriente(16650769-3, 11223344, 10000);
+                let cuenta2 = new CuentaCorriente(17855112-4, 44332211, 20000);
+                cuenta1.verSaldo();
+                cuenta2.verDatosCuenta();
+            }
+            
+        </script>
+    </body>
+</html>
