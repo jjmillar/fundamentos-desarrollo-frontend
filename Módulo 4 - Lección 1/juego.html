@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8">
+        <title>Ejemplo de encapsulamiento</title>
+    </head>
+    <body>
+        <button onclick="ejecutar();">Ejecutar</button>
+        <script>
+            class Personaje {
+                // Atributos privados
+                #nombre;
+                #vida;
+                constructor(nombre) {
+                    this.#nombre = nombre;
+                    this.#vida = 100;
+                }
+                recibirDaño(cantidad) {
+                    this.#vida -= cantidad;
+                    if (this.#vida < 0) {
+                        this.#vida = 0;
+                    }
+                }
+                curar(cantidad) {
+                    this.#vida += cantidad;
+                    if (this.#vida > 100) {
+                        this.#vida = 100;
+                    }
+                }
+                mostrarVida() {
+                    console.log(`El personaje ${this.#nombre} tiene una vida actual de: ${this.#vida}`);
+                }
+                getNombre() {
+                    return this.#nombre;
+                }
+                getVida() {
+                    return this.#vida;
+                }
+            }
+            
+            function ejecutar() {
+                let heroe1 = new Personaje('Max Power');
+                let heroe2 = new Personaje('Peludín');
+                heroe1.recibirDaño(60);
+                heroe1.mostrarVida();
+                heroe2.recibirDaño(10);
+                heroe2.mostrarVida();
+                heroe1.curar(20);
+                heroe2.curar(20);
+                heroe1.mostrarVida();
+                heroe2.mostrarVida();
+                console.log(`Mira que buen nombre tiene el persona: ${heroe1.getNombre()}`);
+            }
+            
+        </script>
+    </body>
+</html>

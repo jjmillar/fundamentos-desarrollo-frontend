@@ -2,55 +2,83 @@
 <html lang="es">
     <head>
         <meta charset="UTF-8">
-        <title>Ejercicio de Herencia</title>
+        <title>Ejemplo de clase</title>
     </head>
     <body>
         <button onclick="ejecutar();">Ejecutar</button>
         <script>
-            class Cuenta {
-                constructor (nombre, , sexo) {
+            class Cliente {
+                constructor (nombre, rut) {
                     this.nombre = nombre;
-                    this.edad = edad;
-                    this.sexo = sexo;
-                }
-                comer() {
-                    console.log(`${this.nombre} está comiendo...`);
-                }
-                caminar() {
-                    console.log(`${this.nombre} está caminando...`);                    
-                }
-                dormir() {
-                    console.log(`${this.nombre} está durmiendo...`);
+                    this.rut = rut;
                 }
             }
-            class Relator extends Persona {
-                constructor (nombre, edad, sexo, experiencia) {
-                    super(nombre, edad, sexo);
-                    this.experiencia = experiencia;
+            class Cuenta {
+                constructor (cliente, banco, saldo) {
+                    this.cliente = cliente;
+                    this.banco = banco;
+                    this.saldo = saldo
                 }
-                verExperiencia() {
-                    console.log(`${this.nombre} tiene ${this.experiencia} años de experiencia`);
+                verDatos() {
+                    console.log(`La cuenta es de ${this.cliente.nombre} y es del banco ${this.banco}. El saldo de la cuenta es de ${this.saldo}`);
+                }
+                depositar(monto) {
+                    if (monto > 0) {
+                        this.saldo += monto;
+                    }
+                }
+                girar(monto) {
+                    if (monto <= this.saldo) {
+                        this.saldo -= monto;
+                    }
                 }
             }
-            class Estudiante extends Persona {
-                constructor (nombre, edad, sexo, carrera) {
-                    super(nombre, edad, sexo);
-                    
-                    this.carrera = carrera;
+            class CuentaVista extends Cuenta {
+                constructor (cliente, banco, saldo, limiteMontoGiro) {
+                    super(cliente, banco, saldo);
+                    this.limiteMontoGiro = limiteMontoGiro;
                 }
-                verCarrera() {
-                    console.log(`Estudia ${this.carrera}`);
+                verLimiteMontoGiro() {
+                    console.log(`El límite de monto de giro es ${this.limiteMontoGiro}`);
                 }
             }
-            function ejecutar() {                
-                let estudiante1 = new Estudiante('Luis', 30, 'Masculino', 'Desarrollador Full-Stack');
-                estudiante1.caminar();
-                estudiante1.verCarrera();
-                let relator1 = new Relator('Felipe', 35, 'Masculino', 15);
-                relator1.comer();
-                relator1.verExperiencia();                
+            class CuentaCorriente extends Cuenta {
+                constructor (cliente, banco, saldo, sobregiroAutorizado) {
+                    super(cliente, banco, saldo);
+                    this.sobregiroAutorizado = sobregiroAutorizado;
+                }
+                verSobregiroAutorizado() {
+                    console.log(`El sobregiro autorizado es de ${this.sobregiroAutorizado}`);
+                }
             }
-            
-        </script>
+            class CuentaAhorro extends Cuenta {
+                constructor(cliente, banco, saldo, limiteCantidadGiros) {
+                    super(cliente, banco, saldo);
+                    this.limiteCantidadGiros = limiteCantidadGiros;
+                }
+                verLimiteCantidadGiros() {
+                    console.log(`El límite de cantidad de giros es ${this.limiteCantidadGiros}`);
+                }
+            }
+            function ejecutar (){
+                let cliente1 = new Cliente('Fernando', '22222222-2');
+                
+                let cuentaVista1 = new CuentaVista(cliente1, 'BCI', 0, 300000);
+                let cuentaCorriente1 = new CuentaCorriente(cliente1, 'BCI', 0, 3000000);
+                let cuentaAhorro1 = new CuentaAhorro(cliente1, 'Itaú', 20000, 6);
+                cuentaVista1.verDatos();
+                cuentaVista1.verLimiteMontoGiro();
+                cuentaCorriente1.verDatos();
+                cuentaCorriente1.verSobregiroAutorizado();
+                cuentaAhorro1.verDatos();
+                cuentaAhorro1.verLimiteCantidadGiros();
+                cuentaVista1.depositar(55000);
+                cuentaCorriente1.girar(90000);
+                cuentaAhorro1.depositar(7000);
+                cuentaVista1.verDatos();
+                cuentaCorriente1.verDatos();
+                cuentaAhorro1.verDatos();
+            }
+            </script>
     </body>
 </html>
