@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8">
+        <title>Semáforo</title>
+        <style>
+            body {
+                font-family: Arial, Helvetica, sans-serif;
+                text-align: center;
+                margin-top: 50px;
+            }
+            .semaforo {
+                width: 120px;
+                background-color: #333;
+                padding: 15px;
+                border-radius: 10px;
+                margin: auto;
+            }
+            .luz {
+                width: 80px;
+                height: 80px;
+                border-radius: 50%;
+                margin: 10px auto;
+                opacity: 0.3;
+                transition: all 0.5s;
+            }
+            .rojo {
+                background-color: red;
+            }
+            .amarillo {
+                background-color: yellow;
+            }
+            .verde {
+                background-color: limegreen;
+            }
+            .activa {
+                opacity: 1;
+                box-shadow: 0 0 25px white;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="semaforo">
+            <div id="rojo" class="luz rojo"></div>
+            <div id="amarillo" class="luz amarillo"></div>
+            <div id="verde" class="luz verde"></div>
+        </div>
+        <script>
+            let estado = 0;
+            function apagarTodas() {
+                document.getElementById("rojo").classList.remove("activa");
+                document.getElementById("amarillo").classList.remove("activa");
+                document.getElementById("verde").classList.remove("activa");
+            }
+            function cambiarSemaforo() {
+                apagarTodas();
+                if (estado === 0) {
+                    document.getElementById("rojo").classList.add("activa");
+                }
+                else if (estado === 1) {
+                    document.getElementById("amarillo").classList.add("activa");
+                }
+                else {
+                    document.getElementById("verde").classList.add("activa");
+                }
+                estado++;
+                if (estado > 2) {
+                    estado = 0;
+                }
+            }
+            cambiarSemaforo();
+            setInterval(cambiarSemaforo, 5000);
+        </script>
+    </body>
+</html>

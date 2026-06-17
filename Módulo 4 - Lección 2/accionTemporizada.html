@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8">
+        <title>Acción temporizada</title>
+    </head>
+    <body>
+        <h1>setTimeout()</h1>
+        <button onclick="iniciar();">Iniciar proceso</button>
+        <p id="resultado"></p>
+        <script>
+            function iniciar() {
+                document.getElementById("resultado").textContent = "Procesando...";
+                // Luego de 5 segundos, asigna el texto 'Proceso completado' al párrafo de resultado
+                setTimeout(function() {
+                    document.getElementById("resultado").textContent = "Proceso completado";
+                }, 2000);
+            }
+            
+        </script>
+    </body>
+</html>

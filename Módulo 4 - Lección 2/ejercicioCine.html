@@ -1,0 +1,54 @@
+
+<!DOCTYPE html>
+<html lang="es">
+    
+    <head>
+        <meta charset="UTF-8">
+        <title>cartelera de cine</title>
+    </head>
+    <body>
+        <button onclick="ejecutar();">comprar entradas</button>
+        <script>
+            class EntradaCine {
+                #precio;
+                #pelicula;
+                #vendida;
+                constructor() {
+                    this.#precio = 10;
+                    this.#pelicula = "Película 1";
+                    this.#vendida = false;
+                }
+                mostrarInfo() {
+                    let estado = this.#estaDisponible() ? "Disponible" : "Agotada";
+                    console.log(`Película: ${this.#pelicula} - Precio: $${this.#precio} - Estado: ${estado}`);
+                }
+                    
+                #estaDisponible() {
+                    if (this.#vendida === false) {
+                        return true; 
+                    } else 
+                    {
+                        return false;
+                    }
+                }
+                
+                comprar() {
+                    if (this.#estaDisponible()) {
+                        this.#vendida = true;
+                        console.log("Entrada comprada con éxito.");
+                    } else {
+                        console.log("Lo siento, esta entrada ya ha sido vendida.");
+                    }
+                }
+            }
+         
+            function ejecutar() {
+                const entrada = new EntradaCine();
+                entrada.mostrarInfo();
+                entrada.comprar();     
+                entrada.comprar();
+            }      
+        </script>
+    </body>
+    
+</html>

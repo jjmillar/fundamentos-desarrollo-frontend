@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8">
+        <title>Ejemplo de método privado</title>
+    </head>
+    <body>
+        <button onclick="ejecutar();">Ejecutar</button>
+        <script>
+            class Persona {
+                #nombre;
+                #edad;
+                constructor(nombre, edad) {
+                    this.#nombre = nombre;
+                    this.#edad = edad;
+                }
+                #esMayorDeEdad() {
+                    return this.#edad > 18;
+                }
+                obtenerInformacion() {
+                    if (this.#esMayorDeEdad()) {
+                        return `${this.#nombre} tiene ${this.#edad} y es mayor de edad`;
+                    } else {
+                        return `${this.#nombre} tiene ${this.#edad} y es menor de edad`;
+                    }
+                }
+            }
+            function ejecutar() {
+                let persona1 = new Persona('Javier', 30);
+                let persona2 = new Persona('Elena', 17);
+                alert(persona1.obtenerInformacion());
+                alert(persona2.obtenerInformacion());
+                // Intenta acceder a un método privado: ¡Error!
+                alert(persona1.esMayorDeEdad());
+            }
+        </script>
+    </body>
+</html>
