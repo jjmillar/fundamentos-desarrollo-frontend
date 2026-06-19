@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Formulario</title>
+
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <div
+      class="container mt-5 d-flex justify-content-center align-items-center"
+    >
+      <div class="card shadow-sm p-4" style="max-width: 500px; width: 100%">
+        <h2 class="mb-4">Formulario de Contacto</h2>
+
+        <form id="formulario">
+          <div class="mb-3">
+            <label class="form-label">Nombre</label>
+            <input type="text" id="nombre" class="form-control" />
+          </div>
+
+          <div class="mb-3">
+            <label class="form-label">Dirección</label>
+            <input type="text" id="direccion" class="form-control" />
+          </div>
+
+          <div class="mb-3">
+            <label class="form-label">Email</label>
+            <input type="email" id="email" class="form-control" />
+          </div>
+
+          <div class="mb-3">
+            <label class="form-label">Fono</label>
+            <input type="text" id="fono" class="form-control" />
+          </div>
+
+          <div class="d-flex gap-2">
+            <button
+              type="button"
+              class="btn btn-primary"
+              onclick="validarFormulario()"
+            >
+              Continuar
+            </button>
+
+            <button
+              type="button"
+              class="btn btn-secondary"
+              onclick="vaciarFormulario()"
+            >
+              Vaciar
+            </button>
+          </div>
+        </form>
+
+        <div id="resultado" class="mt-4"></div>
+      </div>
+    </div>
+
+    <script src="./js/script.js"></script>
+  </body>
+</html>

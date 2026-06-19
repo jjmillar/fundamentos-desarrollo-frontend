@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8">
+        <title>Callbacks en JavaScript</title>
+    </head>
+    <body>
+
+        <h1>Ejercicio de Callbacks</h1>
+
+        <button onclick="iniciar()">Ejecutar ejercicio</button>
+
+        <script>
+            function validar_numero(callback) {
+                let dato = prompt("Ingrese un número:");
+
+                if (!isNaN(dato) && dato !== "") {
+                    callback(Number(dato));
+                } else {
+                    console.log("Usted ingresó caracteres incorrectos");
+                }
+            }
+
+            function calcular_y_avisar_despues(numero, callback) {
+                let suma = 0;
+
+                for (let i = 1; i <= numero; i++) {
+                    if (i % 2 !== 0) {
+                        suma = suma + i;
+                    }
+                }
+
+                setTimeout(function() {
+                    callback(suma);
+                }, 5000);
+            }
+
+            function calcular_y_avisar_dependiendo(numero, callback, callback_error) {
+                let resultado = 0;
+                let suma = 0;
+
+                for (let i = 1; i <= numero; i++) {
+                    suma = suma + i;
+                    resultado = resultado + suma;
+                }
+
+                if (resultado < 1000) {
+                    callback(numero, resultado);
+                } else {
+                    callback_error(numero, resultado);
+                }
+            }
+
+            function iniciar() {
+                validar_numero(function(numero) {
+                    console.log("Correcto. El dato ingresado es válido.");
+
+                    calcular_y_avisar_despues(numero, function(resultado) {
+                        console.log(`El valor de la sumatoria es ${resultado}. Este resultado se obtuvo hace 5 segundos`);
+                    });
+
+                    calcular_y_avisar_dependiendo(
+                        numero,
+                        function(numero, resultado) {
+                            console.log(`Las sumatorias sucesivas de ${numero} es ${resultado}`);
+                        },
+                        function(numero, resultado) {
+                            console.log(`El número sobrepasa el objetivo de la función. Resultado obtenido: ${resultado}`);
+                        }
+                    );
+                });
+            }
+        </script>
+
+    </body>
+</html>

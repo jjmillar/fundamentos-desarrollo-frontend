@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8">
+        <title>cartelera de cine</title>
+        <style>
+            div {
+                margin-bottom: 10px;
+            }
+            .borde {
+                border-style: solid;
+                border-width: 1px;
+            }
+        </style>
+    </head>
+    <body>
+        <h1 id="titulo" class="borde">Ejemplo de getElement(s)</h1>
+        <div class="borde">
+            <h2 name="subtitulo">HTML</h2>
+            <p>El HTML permite crear la estructura de una página web.</p>
+        </div>
+        <div class="borde">
+            <h2 name="subtitulo">CSS</h2>
+            <p>El CSS afecta las formas de la estructura.</p>
+        </div>
+        <div class="borde">
+            <h2 name="subtitulo">JavaScript</h2>
+            <p>JS es el encargado de dar dinamismo a la página web.</p>
+        </div>
+        <button onclick="ejecutar();">Ejecutar</button>
+        <script>
+            function ejecutar() {
+                // Recupera un elemento
+                let titulo = document.getElementById("titulo");
+                titulo.textContent = "Cambio de título!";
+                // Recupera varios elementos (en un arreglo)
+                let divisoresConBorde = document.getElementsByClassName("borde");
+                for(let i=0; i < divisoresConBorde.length; i++) {
+                    divisoresConBorde[i].style.backgroundColor = "yellow";
+                }
+                // Recupera varios elementos (en un arreglo)
+                let subtitulos = document.getElementsByName("subtitulo");
+                for(let i=0; i < subtitulos.length; i++){
+                    subtitulos[i].style.color = "red";
+                }
+                // Recupera varios elementos (en un arreglo)
+                let parrafos = document.getElementsByTagName("p");
+                for (let i=0; i < parrafos.length; i++){
+                    parrafos[i].textContent += " Aprobado!";
+                }
+            } 
+        </script>
+    </body>
+    
+</html>
