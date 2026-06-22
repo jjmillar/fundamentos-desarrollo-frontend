@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Ejercicio 1: callback</title>
+</head>
+<body>
+    <h1>Compra de Entradas</h1>
+    <button onclick="comprarEntrada(mostrarResultado);"> Comprar Entrada </button>
+    <p id="mensaje"></p>
+    <script>
+        function comprarEntrada(callback) {
+            document.getElementById("mensaje") .textContent = "Procesando compra...";
+            console.log("Procesando compra..."); setTimeout(function() { callback(); }, 3000);
+        //            alert( "Compra realizada con éxito" ); //
+        }
+        function mostrarResultado() {
+            document.getElementById("mensaje") .textContent = "Compra realizada con éxito";
+            console.log( "Compra realizada con éxito" );
+        }
+
+    </script>
+</body>
+</html>

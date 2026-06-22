@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8">
+        <title>Callbacks en JavaScript</title>
+    </head>
+    <body>
+        <h1>Ejercicio de Callbacks</h1>
+        <button onclick="inicio();">Ejecutar</button>
+        <script>
+            function pedirPizza() {
+                return new Promise(function(resolve) {
+                   
+                    setTimeout(function() {
+                        resolve("Pizza lista");
+                    }, 3000);
+                    
+                });
+            }
+            async function inicio() {
+                console.log("Esperando pizza...");
+                let resultado = await pedirPizza();
+                console.log(resultado);
+            }            
+        </script>
+    </body>
+</html>

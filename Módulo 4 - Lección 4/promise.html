@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8">
+        <title>Callbacks en JavaScript</title>
+    </head>
+    <body>
+        <h1>Ejercicio de Callbacks</h1>
+        <button onclick="pedirPizza();">Ejecutar</button>
+        <script>
+            function pedirPizza() {
+                console.log("Preparando pizza...");
+                let promise = new Promise(function(resolve, reject) { 
+                    setTimeout(function() {
+                        let disponible = false;
+                        if (disponible) {
+                            resolve("Pizza entregada...");
+                        } else {
+                            reject("No hay ingredientes...");
+                        }
+                    }, 3000);
+                });
+                promise.then(function(mensaje) {
+                    console.log(mensaje);
+                })
+                .catch(function(error){ 
+                    console.log(error);
+                }); 
+                
+            }
+            
+        </script>
+    </body>
+</html>

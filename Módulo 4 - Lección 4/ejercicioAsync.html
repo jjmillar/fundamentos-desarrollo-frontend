@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8">
+        <title>Callbacks en JavaScript</title>
+    </head>
+    <body>
+        <h1>Ticketera</h1>
+        <button onclick="inicio();">Comprar Entrada</button>
+        <p id="texto"></p>
+        <script>
+            function comprarEntrada() {
+                return new Promise(function(resolve) {
+                   
+                    setTimeout(function() {
+                        resolve("Entrada");
+                        resolve(document.getElementById("texto").textContent = "Entrada emitida correctamente");
+                    }, 3000);
+                   
+                });
+            }
+            async function inicio() {
+                document.getElementById("texto").textContent = "Conectando con la ticketera..." ;
+                console.log("Conectando con la ticketera...");
+                let resultado = await comprarEntrada();
+                console.log(resultado);
+            }            
+        </script>
+    </body>
+</html>

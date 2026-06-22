@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8">
+        <title>Callbacks en JavaScript</title>
+    </head>
+    <body>
+        <h1>Ejercicio de Callbacks</h1>
+        <button onclick="iniciar();">Ejecutar</button>
+        <script>
+            function doHomeWork(subject, callback) {
+                alert(`Iniciando mi tarea de ${subject}`);
+                callback();
+            }
+            function iniciar() {
+                doHomeWork('math', function () {
+                    alert('Terminé mi tarea');
+                });
+            }
+            
+        </script>
+    </body>
+</html>

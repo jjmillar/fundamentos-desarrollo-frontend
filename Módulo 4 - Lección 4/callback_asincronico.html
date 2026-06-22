@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8">
+        <title>Callbacks en JavaScript</title>
+    </head>
+    <body>
+        <h1>Ejercicio de Callbacks</h1>
+        <button onclick="pedirPizza(comerPizza);">Ejecutar</button>
+        <script>
+            function pedirPizza(callback) {
+                console.log("Preparando pizza...");
+                setTimeout(function() {
+                    console.log("Pizza lista...");
+                    callback();
+                }, 3000);
+            }
+            function comerPizza() {
+                console.log("Podemos comer...");
+            }
+            
+        </script>
+    </body>
+</html>

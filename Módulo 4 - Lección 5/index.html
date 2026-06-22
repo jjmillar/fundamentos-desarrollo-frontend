@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8">
+        <title>Consumo de API con Fetch</title>
+    </head>
+    <body>
+        <h1>Lista de usuarios desde una API</h1>
+        <button onclick="cargarUsuarios()">Cargar usuarios</button>
+        <ul id="usuarios"></ul>
+        <script>
+            function cargarUsuarios() {
+                const lista = document.getElementById("usuarios");
+                const url = "https://randomuser.me/api/?results=3";
+                lista.innerHTML = "";
+                // Hace la petici+on (request) a la API
+                fetch(url)
+                    .then(function(respuesta) {
+                        // Recibe la respuesta en bruto y le da formato JSON
+                        return respuesta.json();
+                    })
+                    .then(function(data) {
+                        // Arreglo de usuarios
+                        let usuarios = data.results;
+                        // Recorre el arreglo y crea dinámocamente elementos para la lista
+                        usuarios.forEach(function(usuario) {
+                            let li = document.createElement("li");
+                            li.textContent = 
+                                usuario.name.first + " " + 
+                                usuario.name.last + " - " + 
+                                usuario.email;
+                            lista.appendChild(li);
+                        });
+                    })
+                    .catch(function(error) {
+                        // Entra en el caso de haber error al conectar a la API
+                        console.log("Ocurrió un error:");
+                        console.log(error);
+                    });
+            }
+        </script>
+    </body>
+</html>
