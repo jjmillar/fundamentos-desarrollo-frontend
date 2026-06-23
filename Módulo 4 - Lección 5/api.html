@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8">
+        <title>API con Bootstrap</title>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet">
+    </head>
+    <body>
+        <div class="container mt-3">
+            <h1>Usuarios</h1>
+            <button class="btn btn-primary mb-3" onclick="cargarUsuarios()">
+                Cargar Usuarios
+            </button>
+            <div id="contenedor"></div>
+        </div>
+        <script>
+            function cargarUsuarios() {
+                const url = "https://randomuser.me/api/?results=5";
+                const contenedor = document.getElementById("contenedor");
+                contenedor.innerHTML = "";
+                fetch(url)
+                    .then(resp => resp.json())
+                    .then(data => {
+                        data.results.forEach(usuario => {
+                            contenedor.innerHTML += `
+                                <div class="card mb-3">
+                                    <div class="card-body">
+                                        <h5 class="card-title">
+                                            ${usuario.name.first} ${usuario.name.last}
+                                        </h5>
+                                        <p class="card-text">
+                                            ${usuario.email}
+                                        </p>
+                                    </div>
+                                </div>
+                            `;
+                        });
+                    })
+                    .catch(error => {
+                        console.log(error);
+                    });
+            }
+        </script>
+    </body>
+</html>

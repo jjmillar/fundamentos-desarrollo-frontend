@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8">
+        <title>Ejercicio Api</title>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet">
+    </head>
+    <body>
+        <div class="container mt-3">
+            <h1>Resumen ultimos sismos</h1>
+            <button class="btn btn-primary mb-3" onclick="cargarSismos()">
+                Cargar sismos
+            </button>
+            <table id="table" class="table table-hover">
+                <thead>
+                    <tr>
+                        <th>Fecha</th>
+                        <th>Profundidad</th>
+                        <th>Magnitud</th>
+                        <th>RefGeografica</th>
+                    </tr>
+                    <tbody id="tbody"></tbody>
+                </thead>
+            </table>
+        </div>
+        <script>
+            function cargarSismos() {
+                const url = "https://api.gael.cloud/general/public/sismos";
+                const tbody = document.getElementById("tbody");
+                tbody.innerHTML = "";
+                fetch(url)
+                    .then(resp => resp.json())
+                    .then(data => {
+                        data.map(e => {
+                            tbody.innerHTML += `
+                                <tr>
+                                    <td>${e.Fecha}</td>
+                                    <td>${e.Profundidad}</td>
+                                    <td>${e.Magnitud}</td>
+                                    <td>${e.RefGeografica}</td>
+                                </tr>
+                            `
+                        });
+                    })
+                    .catch(error => {
+                        console.log(error);
+                    });
+            }
+        </script>
+    </body>
+</html>
