@@ -1,0 +1,32 @@
+Ejercicio: Sistema de Citas Médicas de una Clínica
+Parte 1: Registro de pacientes y médicos
+
+Una clínica necesita crear una base de datos para administrar sus citas médicas. Como primer paso, cree una tabla llamada Pacientes, donde se registre información básica como el nombre del paciente, RUT, teléfono y edad. Además, cree una tabla llamada Medicos, donde se almacene el nombre del profesional, su especialidad y el número de consulta donde atiende.
+
+Ingrese al menos 8 pacientes y 5 médicos de prueba. Luego, realice una consulta para visualizar todos los registros almacenados en ambas tablas.
+
+Parte 2: Registro de consultas médicas
+
+La clínica también necesita registrar las salas o consultas donde atienden los médicos. Para ello, cree una nueva tabla llamada Consultas, que almacene el número de consulta, el piso donde se encuentra y su estado, por ejemplo: Disponible, Ocupada o En mantención.
+
+Ingrese al menos 5 consultas de prueba. Luego, realice una consulta que muestre los médicos junto con la información de la consulta donde atienden.
+
+Parte 3: Registro de citas médicas
+
+Finalmente, la clínica necesita registrar las citas solicitadas por los pacientes. Cree una tabla llamada Citas, donde se almacene el paciente (ID del paciente), el médico (ID del médico), la consulta asignada (ID de la consulta), la fecha de atención y el estado de la cita, por ejemplo: Programada, Atendida o Cancelada.
+
+Ingrese al menos 8 citas de prueba. Luego, realice una consulta que muestre el nombre del paciente, el nombre del médico, la especialidad, el número de consulta, la fecha de atención y el estado de la cita.
+
+Parte 4: Modificación y eliminación de datos
+
+Una vez ingresada la información, elimine las citas que tengan estado Cancelada. Luego, actualice algunos registros, por ejemplo, cambiando el estado de ciertas citas a Atendida, modificando el teléfono de un paciente o actualizando el piso de una consulta.
+
+Para finalizar, ejecute nuevas consultas que permitan verificar que los cambios fueron aplicados correctamente.
+
+Parte 5: Consultas adicionales e inserciones mediante consultas
+
+Realice consultas usando SELECT DISTINCT para mostrar las distintas especialidades médicas, los distintos estados de las citas y los distintos pisos donde existen consultas.
+
+Además, inserte nuevas citas usando INSERT INTO ... SELECT, tomando como base pacientes ya registrados y médicos de una especialidad específica. Por ejemplo, puede crear nuevas citas para pacientes mayores de cierta edad con un médico de Medicina General.
+
+Finalmente, realice una consulta que relacione las cuatro tablas y muestre en una sola salida: nombre del paciente, RUT, teléfono, nombre del médico, especialidad, número de consulta, piso de la consulta, fecha de atención y estado de la cita.
