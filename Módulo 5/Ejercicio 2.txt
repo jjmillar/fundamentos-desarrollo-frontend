@@ -1,0 +1,41 @@
+CONSULTA 1:
+
+SELECT
+    p.nombre,
+    p.edad,
+    ci.fecha_atencion,
+    ci.estado
+FROM Pacientes p, Citas ci
+WHERE p.id_paciente = ci.id_paciente;
+
+
+CONSULTA 2:
+
+SELECT
+    m.nombre,
+    m.especialidad,
+    c.numero_consulta,
+    c.piso,
+    c.estado
+FROM Medicos m, Consultas c
+WHERE m.numero_consulta = c.numero_consulta;
+
+
+CONSULTA 3:
+
+SELECT
+    p.nombre AS paciente,
+    p.edad,
+    m.nombre AS medico,
+    m.especialidad,
+    c.numero_consulta,
+    c.piso,
+    ci.fecha_atencion,
+    ci.estado
+FROM Pacientes p, Medicos m, Consultas c, Citas ci
+WHERE p.id_paciente = ci.id_paciente
+AND m.id_medico = ci.id_medico
+AND c.id_consulta = ci.id_consulta
+AND ci.estado = 'Programada'
+AND p.edad >= 60
+AND c.piso = 1;
