@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <%- include("partials/head") %>
+</head>
+<body class="d-flex flex-column min-vh-100">
+    <%- include("partials/navbar") %>
+
+    <div class="container mt-5">
+        <h1>Sistema de arriendo de bicicletas</h1>
+        <div class="card mt-4">
+            <div class="card-body">
+                <h4>Bicicletas disponibles: <%= bicicletasDisponibles %></h4>
+                <p>Bicicletas arrendadas: <%= bicicletasArrendadas %></p>
+
+                <% if (bicicletasDisponibles > 10) { %>
+                    <p class="text-success">Disponibilidad alta</p>
+                <% } else if (bicicletasDisponibles >= 5) { %>
+                    <p class="text-warning">Disponibilidad limitada</p>
+                <% } else { %>
+                    <p class="text-danger">Pocas bicicletas disponibles</p>
+                <% } %>
+            </div>
+        </div>
+        <h3 class="mt-4">Estadísticas</h3>
+        <p>Total de bicicletas arrendadas: <%= totalArriendos %></p>
+        <p>Total de bicicletas devueltas: <%= totalDevoluciones %></p>
+    </div>
+
+    <%- include("partials/footer") %>
+</body>
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <%- include("partials/head") %>
+</head>
+<body class="d-flex flex-column min-vh-100">
+    <%- include("partials/navbar") %>
+
+    <div class="container mt-5">
+        <h1>Arrendar bicicletas</h1>
+        <p>Bicicletas disponibles: <strong><%= bicicletasDisponibles %></strong></p>
+
+        <% if (mensaje !== "") { %>
+            <div class="alert alert-<%= tipoMensaje %>">
+                <%= mensaje %>
+            </div>
+        <% } %>
+
+        <form action="/arrendar" method="POST">
+            <div class="mb-3">
+                <label for="nombre" class="form-label">Nombre del cliente</label>
+                <input type="text" class="form-control" id="nombre" name="nombre" required>
+            </div>
+            <div class="mb-3">
+                <label for="cantidad" class="form-label">Cantidad de bicicletas</label>
+
+                <input type="number" class="form-control" id="cantidad" name="cantidad" min="1" required>
+            </div>
+
+            <button type="submit" class="btn btn-primary">Arrendar</button>
+        </form>
+    </div>
+
+    <%- include("partials/footer") %>
+</body>
+</html>

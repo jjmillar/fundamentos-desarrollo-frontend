@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <%- include("partials/head") %>
+</head>
+<body>
+    <h1>Registrar Consumo</h1>
+    <p>Stock actual: <b><%= stock %></b> paquetes</p>
+
+    <form action="/consumo" method="POST">
+        <label>Cantidad de paquetes utilizados:</label><br>
+        <input type="number" name="cantidad" required min="1"><br>
+        <button type="submit">Registrar consumo</button>
+    </form>
+    <br>
+    <a href="/">Volver al inicio</a>
+</body>
+</html>

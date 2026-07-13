@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <%- include("partials/head.ejs") %>
+</head>
+
+<body>
+    <%- include("partials/navbar.ejs") %>
+
+    <div class="container mt-5">
+        <h1>Destinos</h1>
+
+        <div class="row">
+            <div class="col-md-4 mb-3">
+                <div class="card">
+                    <div class="card-body">
+                        <h5>Santiago de Chile</h5>
+                        <p><strong>País:</strong> Chile</p>
+                        <p>Ciudad moderna con cultura, gastronomía y montaña.</p>
+                        <p><strong>Desde:</strong> $220.000</p>
+                        <a href="/destinos" class="btn btn-primary">Ver destacado</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-4 mb-3">
+                <div class="card">
+                    <div class="card-body">
+                        <h5>Buenos Aires</h5>
+                        <p><strong>País:</strong> Argentina</p>
+                        <p>Destino ideal para recorrer teatros, cafés y barrios históricos.</p>
+                        <p><strong>Desde:</strong> $900.000</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-4 mb-3">
+                <div class="card">
+                    <div class="card-body">
+                        <h5>Río de Janeiro</h5>
+                        <p><strong>País:</strong> Brasil</p>
+                        <p>Playas, paisajes y mucha actividad turística.</p>
+                        <p><strong>Desde:</strong> $800.000</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-4 mb-3">
+                <div class="card">
+                    <div class="card-body">
+                        <h5>Termas Geométricas - Pucón</h5>
+                        <p><strong>País:</strong> Chile</p>
+                        <p>Termas, caminatas y lago.</p>
+                        <p><strong>Desde:</strong> $300.000</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-4 mb-3">
+                <div class="card">
+                    <div class="card-body">
+                        <h5>Puerto Varas</h5>
+                        <p><strong>País:</strong> Chile</p>
+                        <p>Paisajes y gastronomía.</p>
+                        <p><strong>Desde:</strong> $400.000</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <a href="/" class="btn btn-secondary">Volver al inicio</a>
+    </div>
+
+    <%- include("partials/footer") %>
+</body>
+</html>

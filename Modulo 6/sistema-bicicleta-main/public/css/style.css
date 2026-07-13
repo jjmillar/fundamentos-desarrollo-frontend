@@ -1,0 +1,12 @@
+body {
+  background-color: #f4f6f9;
+}
+.card {
+  border: none;
+  border-radius: 1rem;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+.contador {
+  font-size: 3rem;
+  font-weight: bold;
+}

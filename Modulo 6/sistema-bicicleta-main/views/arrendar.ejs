@@ -1,0 +1,45 @@
+<%- include('partials/header', { titulo: 'Arrendar Bicicletas' }) %>
+
+<div class="container pb-5">
+    <h1 class="mb-4">
+        Arrendar Bicicletas
+    </h1>
+    <% if(mensaje){ %>
+        <div class="alert alert-info">
+            <%= mensaje %>
+        </div>
+    <% } %>
+    <div class="card shadow">
+        <div class="card-body">
+            <form action="/arrendar" method="POST">
+                <div class="mb-3">
+                    <label class="form-label">
+                        Nombre del cliente
+                    </label>
+                    <input
+                        type="text"
+                        name="nombre"
+                        class="form-control"
+                        required>
+                </div>
+                <div class="mb-3">
+                    <label class="form-label">
+                        Cantidad de bicicletas
+                    </label>
+                    <input
+                        type="number"
+                        name="cantidad"
+                        class="form-control"
+                        min="1"
+                        required>
+                </div>
+                <button class="btn btn-primary">
+                    Arrendar
+                </button>
+                <a href="/" class="btn btn-secondary">
+                    Volver
+                </a>
+            </form>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <%- include("partials/head") %>
+</head>
+<body>
+    <h1><%= nombreCafeteria %></h1>
+    <h2>Paquetes Disponibles</h2>
+    <div class="stock"><%= stock %></div>
+
+    <% if (mensaje) { %>
+        <div class="mensaje <%= tipo %>"><%= mensaje %></div>
+    <% } %>
+
+    <div class="menu">
+        <a href="/reabastecer">Reabastecer</a>
+        <a href="/consumo">Registrar Consumo</a>
+    </div>
+</body>
+</html>

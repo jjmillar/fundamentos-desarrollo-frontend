@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <%- include("partials/head.ejs") %>
+</head>
+
+<body>
+    <%- include("partials/navbar.ejs") %>
+
+    <div class="container mt-5">
+        <h1>Paquetes turísticos</h1>
+
+        <table class="table table-bordered table-striped">
+            <thead>
+                <tr>
+                    <th>Paquete</th>
+                    <th>Días</th>
+                    <th>Destino</th>
+                    <th>Precio</th>
+                </tr>
+            </thead>
+
+            <tbody>
+                <tr>
+                    <td>Tour urbano</td>
+                    <td>3</td>
+                    <td>Santiago</td>
+                    <td>$500.000</td>
+                </tr>
+                <tr>
+                    <td>Buenos Aires cultural</td>
+                    <td>4</td>
+                    <td>Buenos Aires</td>
+                    <td>$1.900.000</td>
+                </tr>
+                <tr>
+                    <td>Playas de Brasil</td>
+                    <td>6</td>
+                    <td>Río de Janeiro</td>
+                    <td>$1.800.000</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <a href="/" class="btn btn-secondary">Volver al inicio</a>
+    </div>
+    
+    <%- include("partials/footer") %>
+</body>
+</html>
