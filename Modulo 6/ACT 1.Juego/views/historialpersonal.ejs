@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="es">
+
+    <head>
+
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Adivina el Número</title>
+
+        <link rel="stylesheet" href="/CSS/style.css">
+
+    </head>
+
+    <body>
+
+        <%- include("partials/nav") %>
+       
+        <div class="contenedor"> 
+
+            <h1>Historial Personal</h1>
+
+            <form action="/historial-personal" method="POST">
+                <label>Nombre del jugador</label>
+                <input type="text" name="nombre" value="<%= nombre %>" required >
+                <button type="submit"> Buscar </button>
+            </form> 
+        
+            <% if (historial.length > 0) { %>
+
+            <table>
+                <tr>
+                    <th>Jugador</th>
+                    <th>Puntaje</th>
+                    <th>Fecha</th>
+                </tr>
+
+                <% historial.forEach(partida => { %>
+                    
+                    <tr>
+                        <td><%= partida.nombre %></td>
+                        <td><%= partida.puntaje %></td>
+                        <td><%= partida.fecha %></td>
+                    </tr>
+
+                <% }) %>
+
+            </table>
+
+            <h3>Total de partidas: <%= totalPartidas %></h3>
+            <h3>Puntaje acumulado: <%= puntajeTotal %></h3>
+            <h3>Puntaje promedio: <%= promedio %></h3>
+
+            <form action="/eliminar-jugador" method="POST">
+                <input type="hidden" name="nombre" value="<%= nombre %>" >
+                <button type="submit"> Eliminar historial del jugador </button>
+            </form>
+
+            <% } %>
+
+            <br><br>
+
+            <a href="/">
+                <button type="button"> Volver al inicio </button>
+            </a>
+
+        </div>
+        
+    </body>
+
+</html>

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="es">
+
+    <head>
+
+        <meta charset="UTF-8">
+        <title>Historial</title>
+        <link rel="stylesheet" href="/CSS/style.css">
+
+    </head>
+
+    <body>
+        <%- include("partials/nav") %>
+        <div class="contenedor">
+
+        <h1>Historial</h1>
+
+        <table>
+
+            <tr>
+                <th>Jugador</th>
+                <th>Puntaje</th>
+                <th>Fecha</th>
+            </tr>
+
+            <% historial.forEach(partida => { %>
+
+            <tr>
+                <td><%= partida.nombre %></td>
+                <td><%= partida.puntaje %></td>
+                <td><%= partida.fecha %></td>
+            </tr>
+
+            <% }) %>
+
+        </table>
+
+        <h3>Total de partidas: <%= totalPartidas %></h3>
+        <h3>Ganadas: <%= ganadas %></h3>
+        <h3>Perdidas: <%= perdidas %></h3>
+        <h3>Puntaje total: <%= puntajeTotal %></h3>
+
+        <br>
+
+        <a href="/"> <button> Volver al inicio </button> </a>
+
+        </div>
+
+    </body>
+
+</html>

@@ -1,0 +1,23 @@
+[
+  {
+    "rut": "11111111-1",
+    "nombre": "Juan Pérez",
+    "cuentas": {
+      "rut": { "numero": "001", "saldo": 150000 },
+      "ahorro": [
+        { "numero": "101", "saldo": 50000 },
+        { "numero": "102", "saldo": 120000 }
+      ]
+    }
+  },
+  {
+    "rut": "22222222-2",
+    "nombre": "Ana Gómez",
+    "cuentas": {
+      "rut": { "numero": "002", "saldo": 80000 },
+      "ahorro": [
+        { "numero": "201", "saldo": 20000 }
+      ]
+    }
+  }
+]

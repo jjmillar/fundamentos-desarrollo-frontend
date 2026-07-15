@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Historial</title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+
+<h1>Historial de Partidas</h1>
+
+<table border="1">
+
+    <tr>
+        <th>Jugador</th>
+        <th>Puntaje</th>
+        <th>Fecha</th>
+    </tr>
+
+    <% partidas.forEach(partida => { %>
+
+        <tr>
+            <td><%= partida.nombre %></td>
+            <td><%= partida.puntaje %></td>
+            <td><%= partida.fecha %></td>
+        </tr>
+
+    <% }) %>
+
+</table>
+
+<br>
+
+<h3>Total de partidas: <%= totalPartidas %></h3>
+
+<h3>Partidas ganadas: <%= partidasGanadas %></h3>
+
+<h3>Partidas perdidas: <%= partidasPerdidas %></h3>
+
+<h3>Puntaje acumulado: <%= puntajeTotal %></h3>
+
+<br>
+
+<a href="/">Volver al inicio</a>
+
+</body>
+</html>

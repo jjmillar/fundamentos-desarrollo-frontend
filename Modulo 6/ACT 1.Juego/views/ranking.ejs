@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="es">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Ranking de Jugadores</title>
+        <link rel="stylesheet" href="/CSS/style.css">
+
+    </head>
+
+    <body>
+        <%- include("partials/nav") %>
+        
+        <div class="contenedor">
+
+            <h1>Ranking de Jugadores</h1>
+
+            <table>
+                <thead>
+                    <tr>
+                        <th>Posición</th>
+                        <th>Jugador</th>
+                        <th>Puntaje Acumulado</th>
+                    </tr>
+
+                </thead>
+
+                <tbody>
+                    <% if (jugadores.length === 0) { %>
+                        <tr>
+                            <td colspan="3"> No existen partidas registradas. </td>
+
+                        </tr>
+
+                    <% } else { %>
+                        <% jugadores.forEach((jugador, index) => { %>
+
+                            <tr>
+                                <td><%= index + 1 %></td>
+                                <td><%= jugador.nombre %></td>
+                                <td><%= jugador.puntaje %></td>
+                            </tr>
+
+                        <% }) %>
+                    <% } %>
+
+                </tbody>
+
+            </table>
+
+            <br>
+
+            <a href="/"> <button> Volver al Inicio </button> </a>
+        </div>
+        
+    </body>
+</html>

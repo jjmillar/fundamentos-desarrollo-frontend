@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Jugando - Adivina el Número</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="/css/style.css" rel="stylesheet">
+</head>
+<body class="bg-light">
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-md-6 col-lg-5">
+        <div class="card shadow-sm mt-5 border-0">
+          <div class="card-body p-4">
+            <h1 class="text-center mb-1">Adivina el Número</h1>
+            <p class="text-center text-muted">Jugador: <strong><%= juego.nombre %></strong></p>
+
+            <div class="d-flex justify-content-between mb-4 pt-4">
+              <span class="badge bg-secondary">Intentos usados: <%= juego.intentosUsados %></span>
+              <span class="badge bg-secondary">Intentos restantes: <%= intentosRestantes %></span>
+            </div>
+
+            <% if (!juego.terminado) { %>
+
+              <% if (error) { %>
+                <div class="alert alert-danger py-2"><%= error %></div>
+              <% } %>
+
+              <% if (juego.mensaje) { %>
+                <div class="alert alert-info py-2"><%= juego.mensaje %></div>
+              <% } %>
+
+              <form action="/jugar" method="POST">
+                <input type="hidden" name="estado" value='<%- JSON.stringify(juego) %>'>
+
+                <div class="mb-3">
+                  <label for="numero" class="form-label">Ingresa un número entre 1 y 10</label>
+                  <input type="number" min="1" max="10" class="form-control" id="numero" name="numero" required autofocus>
+                </div>
+                <div class="d-grid">
+                  <button type="submit" class="btn btn-primary">Adivinar</button>
+                </div>
+              </form>
+
+            <% } else { %>
+
+              <div class="text-center">
+                <% if (juego.gano) { %>
+                  <div class="alert alert-success">
+                    Ganaste! El número secreto era <strong><%= juego.numeroSecreto %></strong>.
+                  </div>
+                <% } else { %>
+                  <div class="alert alert-danger">
+                    Perdiste. El número secreto era <strong><%= juego.numeroSecreto %></strong>.
+                  </div>
+                <% } %>
+
+                <p class="fs-5">Puntaje obtenido: <strong><%= juego.puntaje %></strong></p>
+
+                <div class="d-grid gap-2 mt-4">
+                  <a href="/nueva-partida" class="btn btn-primary">Nueva partida</a>
+                  <a href="/historial" class="btn btn-secondary">Ver historial</a>
+                </div>
+              </div>
+
+            <% } %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Registro Civil de Mascotas</title>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+    <div class="container">
+        <h1>Registro Civil de Mascotas</h1>
+        <div id="estado" class="estado"></div>
+
+        <div class="card">
+            <h2>Listar todas las mascotas</h2>
+            <button id="btnListar">Listar mascotas</button>
+            <div id="listadoGeneral" class="salida"></div>
+        </div>
+
+        <div class="card">
+            <h2>Buscar</h2>
+            <form id="formBuscar" class="form-row">
+                <input name="nombre" placeholder="Nombre mascota" />
+                <input name="rut" placeholder="RUT dueño" />
+                <button type="submit">Buscar</button>
+            </form>
+            <div id="resultadoBusqueda" class="salida"></div>
+        </div>
+
+        <div class="card">
+            <h2>Agregar mascota</h2>
+            <form id="formAgregar" class="form-row">
+                <input name="nombre" placeholder="Nombre mascota" required />
+                <input name="rutDueno" placeholder="RUT dueño" required />
+                <button type="submit">Agregar mascota</button>
+            </form>
+        </div>
+
+        <div class="card">
+            <h2>Eliminar</h2>
+            <form id="formEliminar" class="form-row">
+                <select name="tipo" required>
+                    <option value="">Tipo eliminación</option>
+                    <option value="nombre">Por nombre mascota</option>
+                    <option value="rut">Por RUT dueño</option>
+                </select>
+                <input name="valor" placeholder="Valor" required />
+                <button type="submit" class="danger">Eliminar</button>
+            </form>
+            <div id="resultadoEliminar" class="salida"></div>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>

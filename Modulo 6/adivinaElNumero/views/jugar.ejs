@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Juego</title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+
+<h1>Adivina el Número</h1>
+
+<p><strong>Jugador:</strong> <%= nombre %></p>
+
+<p>Intentos usados: <%= intentos %></p>
+
+<p>Intentos restantes: <%= restantes %></p>
+
+<% if(!terminado){ %>
+
+<form action="/jugar" method="POST">
+
+    <label>Ingrese un número entre 1 y 10</label>
+
+    <br><br>
+
+    <input
+        type="number"
+        name="numero"
+        min="1"
+        max="10"
+        required>
+
+    <button type="submit">
+        Intentar
+    </button>
+
+</form>
+
+<p><%= mensaje %></p>
+
+<% } else { %>
+
+<h2>Partida finalizada</h2>
+
+<p>Número secreto: <strong><%= numero %></strong></p>
+
+<p>Puntaje obtenido: <strong><%= puntaje %></strong></p>
+
+<% if(gano){ %>
+
+<h3>🎉 ¡Ganaste!</h3>
+
+<% } else { %>
+
+<h3>❌ Perdiste.</h3>
+
+<% } %>
+
+<a href="/">Nueva partida</a>
+
+<br><br>
+
+<a href="/historial">Ver historial</a>
+
+<% } %>
+
+</body>
+</html>

@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>MiniShop - Catálogo Netflix</title>
+    <style>
+        * { box-sizing: border-box; }
+        body {
+            font-family: Arial, sans-serif;
+            background: #f6f8fa;
+            margin: 0;
+            padding: 20px;
+            color: #222;
+        }
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+        h1 {
+            text-align: center;
+        }
+        .controls {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+            margin-bottom: 16px;
+            justify-content: center;
+        }
+        button, select, input {
+            padding: 10px;
+            border-radius: 8px;
+            border: 1px solid #ccc;
+            background: white;
+            cursor: pointer;
+            font-size: 0.95rem;
+        }
+        button.primary {
+            background: #0d6efd;
+            color: white;
+            border-color: #0d6efd;
+        }
+        button.primary:hover {
+            background: #0b5ed7;
+        }
+        .card {
+            background: white;
+            padding: 16px;
+            border-radius: 12px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+            margin-bottom: 16px;
+        }
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+            gap: 12px;
+        }
+        .item {
+            border: 1px solid #eaeaea;
+            border-radius: 10px;
+            padding: 12px;
+        }
+        .actions {
+            margin-top: 10px;
+            display: flex;
+            gap: 8px;
+            align-items: center;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+        .error {
+            color: #c00;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Catálogo Netflix</h1>
+
+        <div class="actions">
+            <button id="btnPeliculas" class="primary">Lista de películas</button>
+            <button id="btnSeries" class="primary">Lista de series</button>
+        </div>
+
+        <div class="actions">
+            <input id="ordenarPor" value="nombre" />
+            <button id="btnOrdenar">Ordenar</button>
+            <button id="btnEliminar" class="primary">Eliminar seleccionado</button>
+        </div>
+
+        <div class="card">
+            <h2 id="tituloListado">Listado</h2>
+            <div id="listado" class="grid">-</div>
+            <div id="estado" class="error"></div>
+        </div>
+
+        <div class="card">
+            <h2>Agregar nueva película</h2>
+            <form id="formPelicula" class="actions">
+                <input name="nombre" placeholder="Nombre" required />
+                <input name="director" placeholder="Director" required />
+                <input name="anio" placeholder="Año" type="number" required />
+                <button type="submit" class="primary">Agregar nueva película</button>
+            </form>
+        </div>
+
+        <div class="card">
+            <h2>Agregar nueva serie</h2>
+            <form id="formSerie" class="actions">
+                <input name="nombre" placeholder="Nombre" required />
+                <input name="anio" placeholder="Año estreno" type="number" required />
+                <input name="temporadas" placeholder="Temporadas" type="number" required />
+                <button type="submit" class="primary">Agregar nueva serie</button>
+            </form>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>

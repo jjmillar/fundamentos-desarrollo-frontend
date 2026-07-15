@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="es">
+
+    <head>
+        <meta charset="UTF-8">
+        <title>Resultado</title>
+        <link rel="stylesheet" href="/css/style.css">
+    </head>
+
+    <body>
+        <%- include("partials/nav") %>
+        <div class="contenedor">
+            
+            <h1>Resultado</h1>
+
+            <h2><%= mensaje %></h2>
+
+            <p>  El número secreto era: <strong> <%= numeroSecreto %> </strong> </p>
+
+            <p>  Puntaje obtenido: <strong> <%= puntaje %> </strong> </p>
+            <a href="/"> <button> Nueva partida </button> </a>
+
+            <br><br>
+
+            <a href="/historial"> Ver historial </a>
+
+        </div>
+
+    </body>
+
+</html>

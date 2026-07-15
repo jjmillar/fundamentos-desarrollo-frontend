@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>BancoEstado - Administración de Cuentas</title>
+    <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+    <div class="container">
+        <h1>BancoEstado - Administración de Cuentas</h1>
+        <div id="estado" class="estado"></div>
+
+        <div class="actions">
+            <button id="btnListar">Listar todos los clientes</button>
+            <button id="btnListarRut">Listar clientes con cuenta RUT</button>
+        </div>
+
+        <div class="card">
+            <h2>Agregar cliente nuevo</h2>
+            <form id="formCliente" class="form-row">
+                <input name="rut" placeholder="RUT" required />
+                <input name="nombre" placeholder="Nombre completo" required />
+                <select name="tipoCuenta" required>
+                    <option value="">Tipo cuenta</option>
+                    <option value="rut">Cuenta RUT</option>
+                    <option value="ahorro">Cuenta de ahorro</option>
+                </select>
+                <button type="submit">Crear cliente + cuenta</button>
+            </form>
+        </div>
+
+        <div class="card">
+            <h2>Agregar cuenta a cliente existente</h2>
+            <form id="formCuenta" class="form-row">
+                <input name="rut" placeholder="RUT cliente" required />
+                <select name="tipoCuenta" required>
+                    <option value="">Tipo cuenta</option>
+                    <option value="rut">Cuenta RUT</option>
+                    <option value="ahorro">Cuenta de ahorro</option>
+                </select>
+                <button type="submit">Agregar cuenta</button>
+            </form>
+        </div>
+
+        <div class="card">
+            <h2>Eliminar</h2>
+            <form id="formEliminar" class="form-row">
+                <input name="rut" placeholder="RUT cliente" required />
+                <select name="tipo" required>
+                    <option value="">Tipo eliminación</option>
+                    <option value="cliente">Cliente y todas sus cuentas</option>
+                    <option value="rut">Solo cuenta RUT</option>
+                    <option value="ahorro">Solo cuenta de ahorro</option>
+                </select>
+                <input name="numeroCuenta" placeholder="Número cuenta ahorro (si aplica)" />
+                <button type="submit" class="danger">Eliminar</button>
+            </form>
+        </div>
+
+        <div class="card">
+            <h2>Resultado</h2>
+            <div id="salida" class="salida">-</div>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>

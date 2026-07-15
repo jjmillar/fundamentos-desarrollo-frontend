@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="es">
+
+    <head>
+
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Adivina el Número</title>
+
+        <link rel="stylesheet" href="/CSS/style.css">
+
+    </head>
+
+    <body>
+
+        <%- include("partials/nav") %>
+        <div class="contenedor">
+
+            <h1>Adivina el Número</h1>
+            <p> Debes adivinar un número entre 1 y 10. Tienes un máximo de 5 intentos. </p>
+
+            <form action="/jugar" method="POST">
+
+                <input type="text" name="nombre" placeholder="Ingrese su nombre" required >
+
+                <button type="submit"> Comenzar Juego </button>
+
+            </form>
+
+            <br>
+
+            <a href="/historial"> Ver Historial </a>
+
+            <br><br>
+
+            <a href="/ranking"> Ver Ranking </a>
+
+        </div>
+
+    </body>
+
+</html>

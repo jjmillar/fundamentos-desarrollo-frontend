@@ -1,0 +1,7 @@
+[
+  { "numero": "001", "tipo": "rut", "rutCliente": "11111111-1", "saldo": 150000 },
+  { "numero": "101", "tipo": "ahorro", "rutCliente": "11111111-1", "saldo": 50000 },
+  { "numero": "102", "tipo": "ahorro", "rutCliente": "11111111-1", "saldo": 120000 },
+  { "numero": "002", "tipo": "rut", "rutCliente": "22222222-2", "saldo": 80000 },
+  { "numero": "201", "tipo": "ahorro", "rutCliente": "22222222-2", "saldo": 20000 }
+]

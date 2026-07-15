@@ -1,0 +1,27 @@
+[
+  {
+    "nombre": "Juan",
+    "puntaje": 1,
+    "fecha": "14-07-2026"
+  },
+  {
+    "nombre": "Ximena",
+    "puntaje": 0,
+    "fecha": "14-07-2026"
+  },
+  {
+    "nombre": "Carlos",
+    "puntaje": 3,
+    "fecha": "14-07-2026"
+  },
+  {
+    "nombre": "Juan",
+    "puntaje": 1,
+    "fecha": "14-07-2026"
+  },
+  {
+    "nombre": "Pedro",
+    "puntaje": 1,
+    "fecha": "14-07-2026"
+  }
+]

@@ -1,0 +1,25 @@
+<%- include("partials/head") %>
+
+<%- include("partials/navbar") %>
+
+<main>
+
+    <form action="/ingresar" method="POST">
+
+        <h2>Ingresar Agua</h2>
+
+        <input type="text"  name="nombre" placeholder="Nombre del operador" required>
+        <input type="number" name="cantidad"  placeholder="Litros" min="1" required>
+        <button type="submit">  Ingresar Agua </button>
+
+    </form>
+
+    <% if(mensaje){ %>
+
+    <div class="mensaje <%= tipoMensaje %>">  <%= mensaje %> </div>
+
+    <% } %>
+
+</main>
+
+<%- include("partials/footer") %>

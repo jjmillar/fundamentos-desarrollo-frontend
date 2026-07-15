@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Rick and Morty - Consumo de API REST</title>
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+        body {
+            font-family: Arial, sans-serif;
+            background: #f6f8fa;
+            margin: 0;
+            padding: 20px;
+        }
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+        h1 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .controls {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+            margin-bottom: 20px;
+        }
+        button {
+            padding: 10px 16px;
+            border: 0;
+            border-radius: 8px;
+            background: #0d6efd;
+            color: white;
+            font-size: 0.95rem;
+            cursor: pointer;
+        }
+        button:hover:not(:disabled) {
+            background: #0b5ed7;
+        }
+        button:disabled {
+            background: #94b9e6;
+            cursor: not-allowed;
+        }
+        .section {
+            background: white;
+            padding: 16px;
+            border-radius: 12px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+            margin-bottom: 16px;
+        }
+        .characters {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+            gap: 12px;
+        }
+        .card {
+            border: 1px solid #eaeaea;
+            border-radius: 10px;
+            padding: 10px;
+            text-align: center;
+        }
+        .card img {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            object-fit: cover;
+        }
+        .card .name {
+            font-weight: bold;
+            margin-top: 8px;
+        }
+        .card .meta {
+            font-size: 0.85rem;
+            color: #555;
+        }
+        select {
+            padding: 8px;
+            border-radius: 6px;
+            border: 1px solid #ccc;
+        }
+        .detail {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            flex-wrap: wrap;
+        }
+        .detail img {
+            width: 120px;
+            height: 120px;
+            object-fit: cover;
+            border-radius: 12px;
+        }
+        pre {
+            background: #eef2f7;
+            padding: 12px;
+            border-radius: 8px;
+            overflow-x: auto;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Rick and Morty - API REST</h1>
+
+        <div class="controls">
+            <button id="btnListar">Listar primeros 10 personajes</button>
+            <button id="btnAgrupar" disabled>Agrupar por especie</button>
+            <button id="btnFicha" disabled>Ver ficha individual</button>
+        </div>
+
+        <div class="section" id="seccionListado">
+            <h2>1) Listado de personajes</h2>
+            <p id="estadoListado">Aún no se cargaron datos.</p>
+            <div class="characters" id="listadoPersonajes"></div>
+        </div>
+
+        <div class="section" id="seccionAgrupado">
+            <h2>2) Agrupación por especie</h2>
+            <pre id="agrupadoPorEspecie"></pre>
+        </div>
+
+        <div class="section" id="seccionFicha">
+            <h2>3) Ficha individual</h2>
+
+            <div style="margin-bottom: 10px;">
+                <label for="personajeSelect">Elegí un personaje: </label>
+                <select id="personajeSelect">
+                    <option value="">-- seleccionar --</option>
+                </select>
+            </div>
+
+            <div class="detail" id="fichaDetalle"></div>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>

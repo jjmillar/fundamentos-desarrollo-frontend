@@ -1,0 +1,15 @@
+{
+  "name": "adivina-el-numero",
+  "version": "1.0.0",
+  "description": "Juego Adivina el Número - Node.js, Express, EJS y Bootstrap",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js",
+    "dev": "node app.js"
+  },
+  "dependencies": {
+    "express": "^4.19.2",
+    "express-session": "^1.18.0",
+    "ejs": "^3.1.10"
+  }
+}
