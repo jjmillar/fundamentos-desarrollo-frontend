@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <%- include("partials/head") %>
+</head>
+
+<body class="d-flex flex-column min-vh-100">
+
+    <%- include("partials/navbar") %>
+
+    <main class="container mt-5">
+
+        <h1>Resultados de la elección</h1>
+
+        <p>
+            Total de votos:
+            <strong><%= totalVotos %></strong>
+        </p>
+
+        <% if (totalVotos === 0) { %>
+
+            <div class="alert alert-info">
+                Todavía no se han registrado votos.
+            </div>
+
+        <% } else if (empate) { %>
+
+            <div class="alert alert-warning">
+                La elección se encuentra empatada.
+            </div>
+
+        <% } else { %>
+
+            <div class="alert alert-success">
+                Candidato líder:
+                <strong><%= lider.nombre %></strong>
+
+                con
+
+                <strong><%= lider.votos %></strong>
+
+                voto(s).
+            </div>
+
+        <% } %>
+
+        <div class="table-responsive">
+
+            <table
+                class="table table-bordered table-striped"
+            >
+
+                <thead class="table-dark">
+
+                    <tr>
+                        <th>Candidato</th>
+                        <th>Votos</th>
+                        <th>Porcentaje</th>
+                    </tr>
+
+                </thead>
+
+                <tbody>
+
+                    <% for (
+                        const resultado of resultados
+                    ) { %>
+
+                        <tr>
+                            <td><%= resultado.nombre %></td>
+                            <td><%= resultado.votos %></td>
+
+                            <td>
+                                <%= resultado.porcentaje.toFixed(1) %>%
+                            </td>
+                        </tr>
+
+                    <% } %>
+
+                </tbody>
+
+            </table>
+
+        </div>
+
+    </main>
+
+    <%- include("partials/footer") %>
+
+</body>
+</html>

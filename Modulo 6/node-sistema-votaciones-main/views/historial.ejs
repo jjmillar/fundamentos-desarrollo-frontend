@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <%- include("partials/head") %>
+</head>
+
+<body class="d-flex flex-column min-vh-100">
+
+    <%- include("partials/navbar") %>
+
+    <main class="container mt-5">
+
+        <h1>Historial de votaciones</h1>
+
+        <% if (historial.length === 0) { %>
+
+            <div class="alert alert-info">
+                No existen votos registrados.
+            </div>
+
+        <% } else { %>
+
+            <div class="table-responsive">
+
+                <table
+                    class="table table-bordered table-striped"
+                >
+
+                    <thead class="table-dark">
+
+                        <tr>
+                            <th>Nombre</th>
+                            <th>Candidato</th>
+                            <th>Fecha</th>
+                        </tr>
+
+                    </thead>
+
+                    <tbody>
+
+                        <% for (
+                            const voto of historial
+                        ) { %>
+
+                            <tr>
+                                <td><%= voto.nombre %></td>
+                                <td><%= voto.candidato %></td>
+                                <td><%= voto.fecha %></td>
+                            </tr>
+
+                        <% } %>
+
+                    </tbody>
+
+                </table>
+
+            </div>
+
+        <% } %>
+
+    </main>
+
+    <%- include("partials/footer") %>
+
+</body>
+</html>

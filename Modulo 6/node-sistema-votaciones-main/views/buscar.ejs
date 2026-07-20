@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <%- include("partials/head") %>
+</head>
+
+<body class="d-flex flex-column min-vh-100">
+
+    <%- include("partials/navbar") %>
+
+    <main class="container mt-5">
+
+        <h1>Buscar votante</h1>
+
+        <% if (mensaje !== "") { %>
+
+            <div class="alert alert-danger">
+                <%= mensaje %>
+            </div>
+
+        <% } %>
+
+        <form action="/buscar" method="POST">
+
+            <div class="mb-3">
+
+                <label
+                    for="nombre"
+                    class="form-label"
+                >
+                    Nombre del votante
+                </label>
+
+                <input
+                    type="text"
+                    id="nombre"
+                    name="nombre"
+                    class="form-control"
+                    required
+                >
+
+            </div>
+
+            <button
+                type="submit"
+                class="btn btn-primary"
+            >
+                Buscar
+            </button>
+
+        </form>
+
+        <% if (busquedaRealizada) { %>
+
+            <hr>
+
+            <% if (encontrado) { %>
+
+                <div class="alert alert-success">
+
+                    <p class="mb-1">
+                        <strong><%= nombreBuscado %></strong>
+                        ya registró su voto.
+                    </p>
+
+                    <p class="mb-0">
+                        Fecha:
+                        <%= fecha %>
+                    </p>
+
+                </div>
+
+            <% } else { %>
+
+                <div class="alert alert-warning">
+
+                    No se encontró un voto registrado
+                    para <strong><%= nombreBuscado %></strong>.
+
+                </div>
+
+            <% } %>
+
+        <% } %>
+
+    </main>
+
+    <%- include("partials/footer") %>
+
+</body>
+</html>

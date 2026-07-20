@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <%- include("partials/head") %>
+</head>
+
+<body class="d-flex flex-column min-vh-100">
+
+    <%- include("partials/navbar") %>
+
+    <main class="container mt-5">
+
+        <div class="card">
+
+            <div class="card-body">
+
+                <h1>Sistema de votación</h1>
+
+                <p>
+                    Ingrese su nombre y seleccione el
+                    candidato de su preferencia.
+                </p>
+
+                <p>
+                    Cada persona puede registrar solamente
+                    un voto.
+                </p>
+
+                <% if (mensaje !== "") { %>
+
+                    <div
+                        class="alert alert-<%= tipoMensaje %>"
+                    >
+                        <%= mensaje %>
+                    </div>
+
+                <% } %>
+
+                <form action="/votar" method="POST">
+
+                    <div class="mb-3">
+
+                        <label
+                            for="nombre"
+                            class="form-label"
+                        >
+                            Nombre del votante
+                        </label>
+
+                        <input
+                            type="text"
+                            id="nombre"
+                            name="nombre"
+                            class="form-control"
+                            required
+                        >
+
+                    </div>
+
+                    <div class="mb-3">
+
+                        <label
+                            for="candidatoId"
+                            class="form-label"
+                        >
+                            Candidato
+                        </label>
+
+                        <select
+                            id="candidatoId"
+                            name="candidatoId"
+                            class="form-select"
+                            required
+                        >
+
+                            <option value="">
+                                Seleccione un candidato
+                            </option>
+
+                            <% for (
+                                const candidato of candidatos
+                            ) { %>
+
+                                <option value="<%= candidato.id %>">
+                                    <%= candidato.nombre %>
+                                </option>
+
+                            <% } %>
+
+                        </select>
+
+                    </div>
+
+                    <button
+                        type="submit"
+                        class="btn btn-primary"
+                    >
+                        Registrar voto
+                    </button>
+
+                </form>
+
+            </div>
+
+        </div>
+
+    </main>
+
+    <%- include("partials/footer") %>
+
+</body>
+</html>

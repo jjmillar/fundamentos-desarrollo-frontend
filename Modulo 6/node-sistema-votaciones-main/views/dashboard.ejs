@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <%- include("partials/head") %>
+</head>
+
+<body class="d-flex flex-column min-vh-100">
+
+    <%- include("partials/navbar") %>
+
+    <main class="container mt-5">
+
+        <h1>Dashboard de la elección</h1>
+
+        <div class="row g-3 mt-2 mb-4">
+
+            <div class="col-md-3">
+
+                <div class="card h-100">
+
+                    <div class="card-body">
+
+                        <h5>Total de votos</h5>
+
+                        <p class="fs-3 mb-0">
+                            <%= totalVotos %>
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+            <div class="col-md-3">
+
+                <div class="card h-100">
+
+                    <div class="card-body">
+
+                        <h5>Candidatos</h5>
+
+                        <p class="fs-3 mb-0">
+                            <%= totalCandidatos %>
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+            <div class="col-md-3">
+
+                <div class="card h-100">
+
+                    <div class="card-body">
+
+                        <h5>Con votos</h5>
+
+                        <p class="fs-3 mb-0">
+                            <%= candidatosConVotos %>
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+            <div class="col-md-3">
+
+                <div class="card h-100">
+
+                    <div class="card-body">
+
+                        <h5>Líder actual</h5>
+
+                        <% if (totalVotos === 0) { %>
+
+                            <p class="mb-0">
+                                Sin votos
+                            </p>
+
+                        <% } else if (empate) { %>
+
+                            <p class="mb-0">
+                                Empate
+                            </p>
+
+                        <% } else { %>
+
+                            <p class="mb-1">
+                                <strong>
+                                    <%= lider.nombre %>
+                                </strong>
+                            </p>
+
+                            <p class="mb-0">
+                                <%= lider.votos %> voto(s)
+                            </p>
+
+                        <% } %>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <h2>Resumen por candidato</h2>
+
+        <% for (
+            const resultado of resultados
+        ) { %>
+
+            <div class="card mb-3">
+
+                <div class="card-body">
+
+                    <div
+                        class="d-flex justify-content-between"
+                    >
+
+                        <strong>
+                            <%= resultado.nombre %>
+                        </strong>
+
+                        <span>
+                            <%= resultado.votos %> voto(s)
+                        </span>
+
+                    </div>
+
+                    <div class="progress mt-2">
+
+                        <div
+                            class="progress-bar"
+                            role="progressbar"
+                            style="width: <%= resultado.porcentaje %>%"
+                        >
+                            <%= resultado.porcentaje.toFixed(1) %>%
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        <% } %>
+
+    </main>
+
+    <%- include("partials/footer") %>
+
+</body>
+</html>
