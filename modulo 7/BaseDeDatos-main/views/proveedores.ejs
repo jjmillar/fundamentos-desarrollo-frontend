@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta chartset="UTF-8">
+
+        <title>Proveedores</title>
+
+        <link rel="stylesheet" href="/css/estilos.css">
+
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+    </head>
+    <body>
+        <header class="bg-dark text-white py-4">
+            <div class="container">
+                <h1 class="h3 mb-1">Proveedores</h1>
+                <p class="mb-3 text-white-50">Registro de proveedores</p>
+            </div>
+        </header>
+        <main class="container py-5">
+            <% if (mensaje) { %>
+                <div class="alert alert-success alert-dismissible fade show" role="alert">
+                    <i class="bi bi-check-circle-fill me-2"></i>
+                    <%= mensaje %>
+                    <button type="button" class="btn-close" data-bd-dismiss="alert"></button>
+                </div>
+            <% } %>
+            
+            <% if (error) { %>
+                <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                    <i class="bi bi-exclamation-triangle-fill me-2"></i>
+                    <%= error %>
+                    <button type="button" class="btn-close" data-bd-dismiss="alert"></button>
+                </div>
+            <% } %>
+
+            <div class="row g-4">
+                <div class="col-lg-4">
+                    <div class="card border-0 shadow-sm">
+                        <div class="card-body p-4">
+                            <h2 class="h5 mb-1">Registrar proveedor</h2>
+                            <p class="text-secondary small mb-4">Ingrese los datos del proveedor</p>
+
+                            <form action="/proveedores" method="post">
+                                <div class="mb-3">
+                                    <label for="nombre" class="form-label">Nombre</label>
+                                    <input type="text" id="nombre" name="nombre" class="form-control" required>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="direccion" class="form-label">Direccion</label>
+                                    <input type="text" id="direccion" name="direccion" class="form-control" required>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="telefono" class="form-label">Teléfono</label>
+                                    <input type="number" id="telefono" name="telefono" class="form-control" min="1" required>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="email" class="form-label">Email</label>
+                                    <input type="email" id="email" name="email" class="form-control" required>
+                                </div>
+
+                                <button type="submit" class="btn btn-primary">Registrar proveedor</button>
+                            </form>
+                        </div>
+                    </div>                    
+                </div>
+            <div class="col-lg-8">
+            <div class="justify-content-between align-items-center mb-4">
+                <h2 class="h4 mb-3">Listado de proveedores</h2>
+
+                <div class="card border-1 shadow-sm p-3">
+                    <div class="card-body p-0">
+                        <% if (proveedores.length > 0) { %>
+                            <table class="table table-hover">
+                                <thead>
+                                    <tr>
+                                        <th>ID</th>
+                                        <th>Nombre</th>
+                                        <th>Dirección</th>
+                                        <th>Teléfono</th>
+                                        <th>Email</th>
+                                        <th>Acciones</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <% proveedores.forEach(proveedor => { %>
+                                        <tr>
+                                            <td><%= proveedor.id %></td>
+                                            <td><%= proveedor.nombre %></td>
+                                            <td><%= proveedor.direccion %></td>
+                                            <td><%= proveedor.telefono %></td>
+                                            <td><%= proveedor.email %></td>
+                                            <td>
+                                                    <div class="d-flex justify-content-center gap-2">
+                                                            <a href="/proveedores/editar/<%= proveedor.id %>" class="btn btn-sm">Editar</a>
+
+                                                            <form action="/proveedores/eliminar/<%= proveedor.id %>" method="post" onsubmit="return confirm('¿Está seguro que desea eliminar el registro?')">
+                                                                <button type="submit" class="btn btn-sm">Eliminar</button>
+                                                            </form>
+                                                     </div>
+                                                </td>
+                                        </tr>
+                                    <% }); %>
+                                </tbody>
+                        
+                            </div>
+                        <% } %>
+                    </div>
+                </div>
+            </div>
+        </main>
+        <a href="/" class="btn btn-primary">Ir a Empleados</a>
+              
+    </body>
+</html>

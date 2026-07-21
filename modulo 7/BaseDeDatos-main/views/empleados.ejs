@@ -60,49 +60,49 @@
                     </div>                    
                 </div>
                 <div class="col-lg-8">
-                    <div class="justify-content-between align-items-center mb-4">
-                        <h2 class="h4 mb-3">Listado de empleados</h2>
+                <div class="justify-content-between align-items-center mb-4">
+                    <h2 class="h4 mb-3">Listado de empleados</h2>
 
-                        <div class="card border-1 shadow-sm p-3">
-                            <div class="card-body p-0">
-                                <% if (empleados.length > 0) { %>
-                                    <table class="table table-hover">
-                                        <thead>
+                    <div class="card border-1 shadow-sm p-3">
+                        <div class="card-body p-0">
+                            <% if (empleados.length > 0) { %>
+                                <table class="table table-hover">
+                                    <thead>
+                                        <tr>
+                                            <th>ID</th>
+                                            <th>Nombre</th>
+                                            <th>Cargo</th>
+                                            <th>Sueldo</th>
+                                            <th>Acciones</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <% empleados.forEach(empleado => { %>
                                             <tr>
-                                                <th>ID</th>
-                                                <th>Nombre</th>
-                                                <th>Cargo</th>
-                                                <th>Sueldo</th>
-                                                <th>Acciones</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                            <% empleados.forEach(empleado => { %>
-                                                <tr>
-                                                    <td><%= empleado.id %></td>
-                                                    <td><%= empleado.nombre %></td>
-                                                    <td><%= empleado.cargo %></td>
-                                                    <td><%= empleado.sueldo %></td>
-                                                    <td>
-                                                        <div class="d-flex justify-content-center gap-2">
+                                                <td><%= empleado.id %></td>
+                                                <td><%= empleado.nombre %></td>
+                                                <td><%= empleado.cargo %></td>
+                                                <td><%= empleado.sueldo %></td>
+                                                <td>
+                                                    <div class="d-flex justify-content-center gap-2">
                                                             <a href="/empleados/editar/<%= empleado.id %>" class="btn btn-sm">Editar</a>
 
                                                             <form action="/empleados/eliminar/<%= empleado.id %>" method="post" onsubmit="return confirm('¿Está seguro que desea eliminar el registro?')">
                                                                 <button type="submit" class="btn btn-sm">Eliminar</button>
                                                             </form>
-                                                        </div>
-                                                    </td>
-                                                </tr>
-                                            <% }); %>
-                                        </tbody>                                
-                                    </table>
-                                <% } %>
-                                <a href="/consulta" class="btn btn-primary">Consultar</a>
-                            </div>
+                                                     </div>
+                                                </td>
+                                            </tr>
+                                     <% }); %>
+                                 </tbody>
+                        
+                                </div>
+                            <% } %>
                         </div>
-                    </div>
+                     </div>
                 </div>
-            </div>            
-        </main>              
+        </main>
+        <a href="/proveedores" class="btn btn-primary">Ir a Proveedores</a>
+              
     </body>
 </html>
